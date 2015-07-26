@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD29ACD01B655688004AA36E /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD29ACCF1B655688004AA36E /* GameModel.swift */; };
+		AD74A6A11B649E3600F0AF4B /* FireworksSparks.sks in Resources */ = {isa = PBXBuildFile; fileRef = AD74A69F1B649E3600F0AF4B /* FireworksSparks.sks */; };
+		AD74A6A21B649E3600F0AF4B /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74A6A01B649E3600F0AF4B /* spark.png */; };
 		ADF66CC01B5D634200CE9C84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF66CBF1B5D634200CE9C84 /* AppDelegate.swift */; };
 		ADF66CC21B5D634200CE9C84 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = ADF66CC11B5D634200CE9C84 /* GameScene.sks */; };
 		ADF66CC41B5D634200CE9C84 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF66CC31B5D634200CE9C84 /* GameScene.swift */; };
@@ -28,6 +31,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AD29ACCF1B655688004AA36E /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		AD74A69F1B649E3600F0AF4B /* FireworksSparks.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = FireworksSparks.sks; path = ../FireworksSparks.sks; sourceTree = "<group>"; };
+		AD74A6A01B649E3600F0AF4B /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spark.png; path = ../spark.png; sourceTree = "<group>"; };
 		ADF66CBA1B5D634200CE9C84 /* fireworksGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fireworksGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADF66CBE1B5D634200CE9C84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADF66CBF1B5D634200CE9C84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,9 +87,12 @@
 		ADF66CBC1B5D634200CE9C84 /* fireworksGame */ = {
 			isa = PBXGroup;
 			children = (
+				AD74A69F1B649E3600F0AF4B /* FireworksSparks.sks */,
+				AD74A6A01B649E3600F0AF4B /* spark.png */,
 				ADF66CBF1B5D634200CE9C84 /* AppDelegate.swift */,
 				ADF66CC11B5D634200CE9C84 /* GameScene.sks */,
 				ADF66CC31B5D634200CE9C84 /* GameScene.swift */,
+				AD29ACCF1B655688004AA36E /* GameModel.swift */,
 				ADF66CC51B5D634200CE9C84 /* GameViewController.swift */,
 				ADF66CC71B5D634200CE9C84 /* Main.storyboard */,
 				ADF66CCA1B5D634200CE9C84 /* Images.xcassets */,
@@ -199,6 +208,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADF66CCE1B5D634200CE9C84 /* LaunchScreen.xib in Resources */,
+				AD74A6A21B649E3600F0AF4B /* spark.png in Resources */,
+				AD74A6A11B649E3600F0AF4B /* FireworksSparks.sks in Resources */,
 				ADF66CCB1B5D634200CE9C84 /* Images.xcassets in Resources */,
 				ADF66CC21B5D634200CE9C84 /* GameScene.sks in Resources */,
 				ADF66CC91B5D634200CE9C84 /* Main.storyboard in Resources */,
@@ -220,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADF66CC41B5D634200CE9C84 /* GameScene.swift in Sources */,
+				AD29ACD01B655688004AA36E /* GameModel.swift in Sources */,
 				ADF66CC61B5D634200CE9C84 /* GameViewController.swift in Sources */,
 				ADF66CC01B5D634200CE9C84 /* AppDelegate.swift in Sources */,
 			);
@@ -419,6 +431,7 @@
 				ADF66CDF1B5D634200CE9C84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ADF66CE01B5D634200CE9C84 /* Build configuration list for PBXNativeTarget "fireworksGameTests" */ = {
 			isa = XCConfigurationList;
@@ -427,6 +440,7 @@
 				ADF66CE21B5D634200CE9C84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

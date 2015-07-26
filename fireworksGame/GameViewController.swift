@@ -27,9 +27,11 @@ extension SKNode {
 
 class GameViewController: UIViewController {
 
+    var gameOverObs: NSObjectProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        startObservers()
         if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
             // Configure the view.
             let skView = self.view as! SKView
@@ -65,5 +67,16 @@ class GameViewController: UIViewController {
 
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    func startObservers() {
+        let center = NSNotificationCenter.defaultCenter()
+        let uiQueue = NSOperationQueue.mainQueue()
+        center.addObserver(self, selector: "gameOver", name: "goToGameOver", object: nil)
+    }
+
+    // http://stackoverflow.com/questions/21578391/presenting-uiviewcontroller-from-skscene
+    func gameOver() {
+        self.performSegueWithIdentifier("gameOver", sender: self)
     }
 }
