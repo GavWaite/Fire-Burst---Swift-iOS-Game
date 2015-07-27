@@ -13,7 +13,6 @@ import UIKit
 //Set the sprite sizes for the rockets
 let rocketSize = CGSize(width: 50, height: 60)
 
-
 var numberOfRockets = 0
 
 let redFireworkEmitterPath: String = NSBundle.mainBundle().pathForResource("RedFireworksSparks", ofType: "sks")!
@@ -39,6 +38,7 @@ struct GameModel {
     var time = 0
     var intervalTime = 1.5
     var lives = 5
+    var phase = 1
 }
 
 let scoreLabel = SKLabelNode(fontNamed:"Helvetica")
@@ -54,6 +54,9 @@ struct TimerApp {
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let rocketCategory: UInt32 = 0x1 << 0
+    let floorCategory: UInt32 = 0x1 << 1
+    let nothingCategory: UInt32 = 0x1 << 2
+    
     var model: GameModel?
     private var timer: NSTimer?
     var TimeObserver: NSObjectProtocol?
@@ -67,7 +70,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         startObservers()
         
         
-        // Add debug launch button
+        // Add score text
         scoreLabel.text = "00000"
         scoreLabel.name = "score"
         scoreLabel.fontSize = 30
@@ -77,31 +80,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(scoreLabel)
         
         // Add debug launch button
-        
         launch.text = "Launch!";
         launch.name = "launch"
         launch.fontSize = 30;
         launch.fontColor = UIColor.whiteColor()
-        launch.position = CGPoint(x:CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame)-50);
+        launch.position = CGPoint(x:CGRectGetMidX(self.frame), y: CGRectGetMinY(self.frame)+10);
         self.addChild(launch)
         
-        // Set the debug button
+        // Add the debug gameOver button
         let back = SKLabelNode(fontNamed:"Times New Roman")
         back.text = "\"Game Ended\""
         back.fontSize = 40
-        back.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
+        back.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMaxY(self.frame)-40)
         back.name = "back"
         back.fontColor = UIColor.whiteColor()
         self.addChild(back)
+        
+        // Set up the bottom of screen colision
+        let bottomLeft = CGPoint(x: CGRectGetMinX(self.frame), y: CGRectGetMinY(self.frame))
+        let bottomRight = CGPoint(x: CGRectGetMaxX(self.frame), y: CGRectGetMinY(self.frame))
+        let bottomEdge = SKPhysicsBody(edgeFromPoint: bottomLeft, toPoint: bottomRight)
+        bottomEdge.categoryBitMask = floorCategory
+        bottomEdge.contactTestBitMask = rocketCategory
+        bottomEdge.collisionBitMask = 0
+        self.physicsBody = bottomEdge
         
         // Set the scene
         backgroundColor = UIColor.blackColor()
         
         // Set up the gravity
         self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -9.81)
-        //        self.physicsWorld.contactDelegate = self;
-        
-        
+        self.physicsWorld.contactDelegate = self
         
         
     }
@@ -115,19 +124,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let node = self.nodeAtPoint(location)
             
             if node.name == "back" {
-                cancelTimer()
-                self.removeAllChildren()
-                let center = NSNotificationCenter.defaultCenter()
-                let notification = NSNotification(
-                    name: "goToGameOver", object: self)
-                center.postNotification(notification)
-                println("Notification sent")
+                endTheGame()
             }
                 
             else if node.name == "launch"{
-                //  # DEBUG
-                //setUpNewRocket()
-                
                 launch.hidden = true
                 activateTimer()
             }
@@ -152,6 +152,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+////////////////////////////// Collisions ///////////////////////////////////////////////
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        
+        let a = contact.bodyA
+        let b = contact.bodyB
+        let direction = contact.contactNormal.dy
+        
+        println("\(b.node!.name!) just hit the floor with direction \(direction)")
+        if direction == 1.0 {
+            model!.lives--
+            if model!.lives < 1 {
+                endTheGame()
+            }
+        }
+        
+    }
+    
+    
+ ///////////////////////////// Observering and Timing ///////////////////////////////////////////////
     func startObservers() {
         let center = NSNotificationCenter.defaultCenter()
         let uiQueue = NSOperationQueue.mainQueue()
@@ -171,11 +191,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func handleTimer() {
-        if model!.intervalTime > 0.8{
-            model!.intervalTime = model!.intervalTime - 0.01
+        if model!.intervalTime > 0.5{
+            model!.intervalTime = model!.intervalTime - 0.02
         }
-        let numToLaunch = Int(round(Double(model!.score) / 25) + 1)
-        for n in 1...numToLaunch {
+        
+        if model!.score / model!.phase > 50 {
+            model!.phase++
+            model!.intervalTime = 1.5
+        }
+        
+        for n in 1...model!.phase {
             setUpNewRocket()
         }
         if timer != nil && timer!.timeInterval != model!.intervalTime  {
@@ -185,6 +210,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             activateTimer()
         }
         
+    }
+
+///////////////////////////////// Actions ////////////////////////////////////////
+    
+    func endTheGame() {
+        cancelTimer()
+        self.removeAllChildren()
+        let center = NSNotificationCenter.defaultCenter()
+        let notification = NSNotification(
+            name: "goToGameOver", object: self)
+        center.postNotification(notification)
     }
     
     func addToScore() {
@@ -257,19 +293,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let leftX = Int(CGRectGetMinX(self.frame)) + 30
         let rightX = Int(CGRectGetMaxX(self.frame)) - 30
         let Xdistance = rightX - leftX
-        let Xposition = Int(arc4random_uniform(UInt32(Xdistance)))
+        let Xposition = leftX + Int(arc4random_uniform(UInt32(Xdistance)))
         let Yposition = Int(CGRectGetMinY(self.frame))
         
         rocket.position = CGPoint(x:Xposition, y:Yposition)
         rocket.physicsBody = SKPhysicsBody(rectangleOfSize: rocket.size)
-        rocket.physicsBody?.dynamic = true
-        rocket.physicsBody?.mass = 0.01
-        rocket.physicsBody?.contactTestBitMask = rocketCategory
-        rocket.physicsBody?.collisionBitMask = 0
+        rocket.physicsBody!.dynamic = true
+        rocket.physicsBody!.mass = 0.01
+        rocket.physicsBody!.categoryBitMask = rocketCategory
+        rocket.physicsBody!.contactTestBitMask = floorCategory
+        rocket.physicsBody!.collisionBitMask = 0
         numberOfRockets++
         
         self.addChild(rocket)
         let velocity = 700 + Int(arc4random_uniform(UInt32(100)))
+        println("Rocket launched with velocity \(velocity)")
         rocket.physicsBody?.applyForce(CGVector(dx: 0, dy: velocity))
     }
 }
