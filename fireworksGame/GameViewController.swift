@@ -29,11 +29,13 @@ class GameViewController: UIViewController {
 
     var gameOverObs: NSObjectProtocol?
     var model: GameModel?
+    var scores: Highscores?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         startObservers()
         model = GameModel()
+        scores = Highscores()
         if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
             // Configure the view.
             let skView = self.view as! SKView
@@ -78,8 +80,6 @@ class GameViewController: UIViewController {
 
     // http://stackoverflow.com/questions/21578391/presenting-uiviewcontroller-from-skscene
     func gameOver() {
-        var scene = GameScene.unarchiveFromFile("GameScene") as? GameScene
-        scene = nil
         self.performSegueWithIdentifier("gameOver", sender: self)
     }
 }

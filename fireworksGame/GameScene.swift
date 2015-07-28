@@ -42,6 +42,7 @@ struct GameModel {
 }
 
 let scoreLabel = SKLabelNode(fontNamed:"Helvetica")
+let livesLabel = SKLabelNode(fontNamed:"Helvetica")
 
 struct TimerApp {
     static let NotificationName = "AppLifeCycle" // This is our radio station
@@ -58,6 +59,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let nothingCategory: UInt32 = 0x1 << 2
     
     var model: GameModel?
+    var scores: Highscores?
     private var timer: NSTimer?
     var TimeObserver: NSObjectProtocol?
     
@@ -67,8 +69,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /* Setup your scene here */
         
         model = GameModel()
+        scores = Highscores.Static.instance
         startObservers()
-        
         
         // Add score text
         scoreLabel.text = "00000"
@@ -76,8 +78,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.fontSize = 30
         scoreLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
         scoreLabel.fontColor = UIColor.whiteColor()
-        scoreLabel.position = CGPoint(x:CGRectGetMinX(self.frame)+5, y: CGRectGetMinY(self.frame)+5)
+        scoreLabel.position = CGPoint(x:CGRectGetMinX(self.frame)+15, y: CGRectGetMaxY(self.frame)-45)
         self.addChild(scoreLabel)
+        
+        // Add lives text
+        livesLabel.text = "5"
+        livesLabel.name = "lives"
+        livesLabel.fontSize = 30
+        livesLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Right
+        livesLabel.fontColor = UIColor.yellowColor()
+        livesLabel.position = CGPoint(x:CGRectGetMaxX(self.frame)-15, y: CGRectGetMaxY(self.frame)-45)
+        self.addChild(livesLabel)
         
         // Add debug launch button
         launch.text = "Launch!";
@@ -88,13 +99,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(launch)
         
         // Add the debug gameOver button
-        let back = SKLabelNode(fontNamed:"Times New Roman")
-        back.text = "\"Game Ended\""
-        back.fontSize = 40
-        back.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMaxY(self.frame)-40)
-        back.name = "back"
-        back.fontColor = UIColor.whiteColor()
-        self.addChild(back)
+//        let back = SKLabelNode(fontNamed:"Times New Roman")
+//        back.text = "\"Game Ended\""
+//        back.fontSize = 40
+//        back.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMaxY(self.frame)-40)
+//        back.name = "back"
+//        back.fontColor = UIColor.whiteColor()
+//        self.addChild(back)
         
         // Set up the bottom of screen colision
         let bottomLeft = CGPoint(x: CGRectGetMinX(self.frame), y: CGRectGetMinY(self.frame))
@@ -160,8 +171,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let b = contact.bodyB
         let direction = contact.contactNormal.dy
         
-        println("\(b.node!.name!) just hit the floor with direction \(direction)")
         if direction == 1.0 {
+            println("\(b.node!.name!) just hit the floor with direction \(direction)")
             model!.lives--
             if model!.lives < 1 {
                 endTheGame()
@@ -216,6 +227,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func endTheGame() {
         cancelTimer()
+        scores!.tempScore = model!.score
         self.removeAllChildren()
         let center = NSNotificationCenter.defaultCenter()
         let notification = NSNotification(
@@ -253,6 +265,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
         scoreLabel.text = "\(model!.score)"
+        livesLabel.text = "\(model!.lives) ❤️"
+        if let r = self.childNodeWithName("redR0"){
+            println("\(r.physicsBody!.velocity.dy)")
+        }
         
     }
     
@@ -275,6 +291,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func fireRocket(color: String) {
         let rocket: SKSpriteNode
         
+        // Initialise the rocket, depending on the color
         switch color{
         case "red":
             rocket = SKSpriteNode(color: UIColor.redColor(), size: rocketSize)
@@ -290,13 +307,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             rocket = SKSpriteNode(color: UIColor.blueColor(), size: rocketSize)
         }
         
+        // Decide where to randomly launch the rocket from
         let leftX = Int(CGRectGetMinX(self.frame)) + 30
         let rightX = Int(CGRectGetMaxX(self.frame)) - 30
         let Xdistance = rightX - leftX
         let Xposition = leftX + Int(arc4random_uniform(UInt32(Xdistance)))
         let Yposition = Int(CGRectGetMinY(self.frame))
+        rocket.position = CGPoint(x: Xposition, y: Yposition)
         
-        rocket.position = CGPoint(x:Xposition, y:Yposition)
+        // Set up the physics body for the rocket
         rocket.physicsBody = SKPhysicsBody(rectangleOfSize: rocket.size)
         rocket.physicsBody!.dynamic = true
         rocket.physicsBody!.mass = 0.01
@@ -305,9 +324,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         rocket.physicsBody!.collisionBitMask = 0
         numberOfRockets++
         
+        // Add the rocket and apply a random vertical force to it
         self.addChild(rocket)
         let velocity = 700 + Int(arc4random_uniform(UInt32(100)))
-        println("Rocket launched with velocity \(velocity)")
-        rocket.physicsBody?.applyForce(CGVector(dx: 0, dy: velocity))
+        println("Rocket \(rocket.name) launched with velocity \(velocity)")
+        rocket.physicsBody!.applyForce(CGVector(dx: 0, dy: velocity))
     }
 }
