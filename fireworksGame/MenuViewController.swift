@@ -21,10 +21,11 @@ class MenuViewController: UIViewController {
             highscores!.scores = saveData.savedScores
         }
         else {
-            println("failure!!")
+            println("failure!! first time playing")
         }
         if highscores!.scores.count == 0 {
             highscores!.scores["Developer"] = 100
+            println("Added developer score of 100")
         }
     }
     

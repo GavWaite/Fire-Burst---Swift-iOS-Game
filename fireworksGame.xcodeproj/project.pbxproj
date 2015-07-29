@@ -14,6 +14,7 @@
 		AD29AD121B66F171004AA36E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD29AD111B66F171004AA36E /* MenuViewController.swift */; };
 		AD29AD141B66FE90004AA36E /* HighscoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD29AD131B66FE90004AA36E /* HighscoreViewController.swift */; };
 		AD29AD181B68486A004AA36E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD29AD171B68486A004AA36E /* Persistence.swift */; };
+		AD29AD1B1B685BE7004AA36E /* flameTrail.sks in Resources */ = {isa = PBXBuildFile; fileRef = AD29AD191B685BE7004AA36E /* flameTrail.sks */; };
 		AD74A6A11B649E3600F0AF4B /* RedFireworksSparks.sks in Resources */ = {isa = PBXBuildFile; fileRef = AD74A69F1B649E3600F0AF4B /* RedFireworksSparks.sks */; };
 		AD74A6A21B649E3600F0AF4B /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74A6A01B649E3600F0AF4B /* spark.png */; };
 		ADF66CC01B5D634200CE9C84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF66CBF1B5D634200CE9C84 /* AppDelegate.swift */; };
@@ -44,6 +45,7 @@
 		AD29AD111B66F171004AA36E /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		AD29AD131B66FE90004AA36E /* HighscoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighscoreViewController.swift; sourceTree = "<group>"; };
 		AD29AD171B68486A004AA36E /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		AD29AD191B685BE7004AA36E /* flameTrail.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = flameTrail.sks; sourceTree = "<group>"; };
 		AD74A69F1B649E3600F0AF4B /* RedFireworksSparks.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = RedFireworksSparks.sks; path = ../RedFireworksSparks.sks; sourceTree = "<group>"; };
 		AD74A6A01B649E3600F0AF4B /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spark.png; path = ../spark.png; sourceTree = "<group>"; };
 		ADF66CBA1B5D634200CE9C84 /* fireworksGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fireworksGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +86,7 @@
 				AD74A69F1B649E3600F0AF4B /* RedFireworksSparks.sks */,
 				AD29AD051B659AD5004AA36E /* YellowFireworksSparks.sks */,
 				AD29AD091B659B47004AA36E /* GreenFireworksSparks.sks */,
+				AD29AD191B685BE7004AA36E /* flameTrail.sks */,
 				AD74A6A01B649E3600F0AF4B /* spark.png */,
 			);
 			name = "Particle Effects";
@@ -242,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD29AD0B1B659B47004AA36E /* GreenFireworksSparks.sks in Resources */,
+				AD29AD1B1B685BE7004AA36E /* flameTrail.sks in Resources */,
 				AD29AD071B659AD5004AA36E /* YellowFireworksSparks.sks in Resources */,
 				ADF66CCE1B5D634200CE9C84 /* LaunchScreen.xib in Resources */,
 				AD74A6A21B649E3600F0AF4B /* spark.png in Resources */,
