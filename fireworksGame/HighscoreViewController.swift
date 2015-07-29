@@ -16,8 +16,7 @@ struct Identifiers {
 class HighscoreViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var highscores: Highscores?
-    
-    
+
     @IBOutlet weak var leaderboard: UITableView!
     
     override func viewDidLoad() {

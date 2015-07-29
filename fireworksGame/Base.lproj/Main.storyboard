@@ -8,7 +8,7 @@
         <!--mainMenu-->
         <scene sceneID="bTS-q1-xfR">
             <objects>
-                <viewController title="mainMenu" id="XmU-54-yhi" sceneMemberID="viewController">
+                <viewController title="mainMenu" id="XmU-54-yhi" customClass="MenuViewController" customModule="fireworksGame" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uqW-Qv-HG9"/>
                         <viewControllerLayoutGuide type="bottom" id="4ua-yY-2G4"/>
@@ -483,8 +483,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="1YP-OX-5bI"/>
-        <segue reference="oYd-SL-U0G"/>
+        <segue reference="wQi-uT-no4"/>
         <segue reference="2Z3-e8-PkO"/>
+        <segue reference="USh-F4-HCm"/>
     </inferredMetricsTieBreakers>
 </document>

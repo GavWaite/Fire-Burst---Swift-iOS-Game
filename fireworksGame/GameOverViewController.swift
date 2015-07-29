@@ -35,7 +35,9 @@ class GameOverViewController: UIViewController {
                 self.descripLabel.text = "Previous best: \(currentScoreForName!)"
             }
             self.addScoreButtonOutlet.hidden = true
-            
+            var saveData = SuperSimpleSave()
+            saveData.savedScores = self.score.scores
+            Persistence.save(saveData)
         }))
         
         namePrompt.addTextFieldWithConfigurationHandler({(textField: UITextField!) in

@@ -13,6 +13,7 @@
 		AD29AD101B66F067004AA36E /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD29AD0F1B66F067004AA36E /* GameOverViewController.swift */; };
 		AD29AD121B66F171004AA36E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD29AD111B66F171004AA36E /* MenuViewController.swift */; };
 		AD29AD141B66FE90004AA36E /* HighscoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD29AD131B66FE90004AA36E /* HighscoreViewController.swift */; };
+		AD29AD181B68486A004AA36E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD29AD171B68486A004AA36E /* Persistence.swift */; };
 		AD74A6A11B649E3600F0AF4B /* RedFireworksSparks.sks in Resources */ = {isa = PBXBuildFile; fileRef = AD74A69F1B649E3600F0AF4B /* RedFireworksSparks.sks */; };
 		AD74A6A21B649E3600F0AF4B /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74A6A01B649E3600F0AF4B /* spark.png */; };
 		ADF66CC01B5D634200CE9C84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF66CBF1B5D634200CE9C84 /* AppDelegate.swift */; };
@@ -42,6 +43,7 @@
 		AD29AD0F1B66F067004AA36E /* GameOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 		AD29AD111B66F171004AA36E /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		AD29AD131B66FE90004AA36E /* HighscoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighscoreViewController.swift; sourceTree = "<group>"; };
+		AD29AD171B68486A004AA36E /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		AD74A69F1B649E3600F0AF4B /* RedFireworksSparks.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = RedFireworksSparks.sks; path = ../RedFireworksSparks.sks; sourceTree = "<group>"; };
 		AD74A6A01B649E3600F0AF4B /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spark.png; path = ../spark.png; sourceTree = "<group>"; };
 		ADF66CBA1B5D634200CE9C84 /* fireworksGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fireworksGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +125,7 @@
 				ADF66CC11B5D634200CE9C84 /* GameScene.sks */,
 				ADF66CC31B5D634200CE9C84 /* GameScene.swift */,
 				AD29AD0D1B66EFF6004AA36E /* highscores.swift */,
+				AD29AD171B68486A004AA36E /* Persistence.swift */,
 				AD29AD161B66FF03004AA36E /* ViewControllers */,
 				ADF66CC71B5D634200CE9C84 /* Main.storyboard */,
 				ADF66CCA1B5D634200CE9C84 /* Images.xcassets */,
@@ -264,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADF66CC41B5D634200CE9C84 /* GameScene.swift in Sources */,
+				AD29AD181B68486A004AA36E /* Persistence.swift in Sources */,
 				AD29AD0E1B66EFF6004AA36E /* highscores.swift in Sources */,
 				AD29AD101B66F067004AA36E /* GameOverViewController.swift in Sources */,
 				AD29AD121B66F171004AA36E /* MenuViewController.swift in Sources */,
