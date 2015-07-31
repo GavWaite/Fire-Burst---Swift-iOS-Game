@@ -19,6 +19,13 @@
 		AD74A6A21B649E3600F0AF4B /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74A6A01B649E3600F0AF4B /* spark.png */; };
 		ADA8A65D1B69B134009C14DA /* TutorialData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA8A65C1B69B134009C14DA /* TutorialData.swift */; };
 		ADA8A6601B69B1FB009C14DA /* c7nazara.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADA8A65F1B69B1FB009C14DA /* c7nazara.ttf */; };
+		ADA8A6621B6BFBC8009C14DA /* HowToPlayPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA8A6611B6BFBC8009C14DA /* HowToPlayPageViewController.swift */; };
+		ADA8A6641B6BFBE4009C14DA /* HowToPlayContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA8A6631B6BFBE4009C14DA /* HowToPlayContentViewController.swift */; };
+		ADA8A6661B6C01C1009C14DA /* SettingsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA8A6651B6C01C1009C14DA /* SettingsData.swift */; };
+		ADA8A6691B6C177E009C14DA /* SoundEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA8A6681B6C177E009C14DA /* SoundEffects.swift */; };
+		ADA8A66C1B6C17C4009C14DA /* 75328__oddworld__oddworld-explosionecho.wav in Resources */ = {isa = PBXBuildFile; fileRef = ADA8A66A1B6C17C4009C14DA /* 75328__oddworld__oddworld-explosionecho.wav */; };
+		ADA8A66D1B6C17C4009C14DA /* 202230__deraj__pop-sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = ADA8A66B1B6C17C4009C14DA /* 202230__deraj__pop-sound.wav */; };
+		ADA8A6701B6C1BB1009C14DA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA8A66F1B6C1BB1009C14DA /* SettingsViewController.swift */; };
 		ADF66CC01B5D634200CE9C84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF66CBF1B5D634200CE9C84 /* AppDelegate.swift */; };
 		ADF66CC21B5D634200CE9C84 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = ADF66CC11B5D634200CE9C84 /* GameScene.sks */; };
 		ADF66CC41B5D634200CE9C84 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF66CC31B5D634200CE9C84 /* GameScene.swift */; };
@@ -52,6 +59,13 @@
 		AD74A6A01B649E3600F0AF4B /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spark.png; path = ../spark.png; sourceTree = "<group>"; };
 		ADA8A65C1B69B134009C14DA /* TutorialData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialData.swift; sourceTree = "<group>"; };
 		ADA8A65F1B69B1FB009C14DA /* c7nazara.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = c7nazara.ttf; sourceTree = "<group>"; };
+		ADA8A6611B6BFBC8009C14DA /* HowToPlayPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToPlayPageViewController.swift; sourceTree = "<group>"; };
+		ADA8A6631B6BFBE4009C14DA /* HowToPlayContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToPlayContentViewController.swift; sourceTree = "<group>"; };
+		ADA8A6651B6C01C1009C14DA /* SettingsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsData.swift; sourceTree = "<group>"; };
+		ADA8A6681B6C177E009C14DA /* SoundEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundEffects.swift; sourceTree = "<group>"; };
+		ADA8A66A1B6C17C4009C14DA /* 75328__oddworld__oddworld-explosionecho.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "75328__oddworld__oddworld-explosionecho.wav"; sourceTree = "<group>"; };
+		ADA8A66B1B6C17C4009C14DA /* 202230__deraj__pop-sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "202230__deraj__pop-sound.wav"; sourceTree = "<group>"; };
+		ADA8A66F1B6C1BB1009C14DA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		ADF66CBA1B5D634200CE9C84 /* fireworksGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fireworksGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADF66CBE1B5D634200CE9C84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADF66CBF1B5D634200CE9C84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +117,9 @@
 				ADF66CC51B5D634200CE9C84 /* GameViewController.swift */,
 				AD29AD0F1B66F067004AA36E /* GameOverViewController.swift */,
 				AD29AD131B66FE90004AA36E /* HighscoreViewController.swift */,
+				ADA8A66F1B6C1BB1009C14DA /* SettingsViewController.swift */,
+				ADA8A6611B6BFBC8009C14DA /* HowToPlayPageViewController.swift */,
+				ADA8A6631B6BFBE4009C14DA /* HowToPlayContentViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -114,6 +131,25 @@
 				ADF66CCC1B5D634200CE9C84 /* LaunchScreen.xib */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		ADA8A6671B6C0214009C14DA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AD29AD0D1B66EFF6004AA36E /* highscores.swift */,
+				ADA8A6651B6C01C1009C14DA /* SettingsData.swift */,
+				ADA8A65C1B69B134009C14DA /* TutorialData.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		ADA8A66E1B6C17C9009C14DA /* Sound Effects */ = {
+			isa = PBXGroup;
+			children = (
+				ADA8A66A1B6C17C4009C14DA /* 75328__oddworld__oddworld-explosionecho.wav */,
+				ADA8A66B1B6C17C4009C14DA /* 202230__deraj__pop-sound.wav */,
+			);
+			name = "Sound Effects";
 			sourceTree = "<group>";
 		};
 		ADF66CB11B5D634200CE9C84 = {
@@ -140,8 +176,9 @@
 				AD29AD151B66FEF4004AA36E /* Particle Effects */,
 				ADF66CC11B5D634200CE9C84 /* GameScene.sks */,
 				ADF66CC31B5D634200CE9C84 /* GameScene.swift */,
-				AD29AD0D1B66EFF6004AA36E /* highscores.swift */,
-				ADA8A65C1B69B134009C14DA /* TutorialData.swift */,
+				ADA8A6681B6C177E009C14DA /* SoundEffects.swift */,
+				ADA8A66E1B6C17C9009C14DA /* Sound Effects */,
+				ADA8A6671B6C0214009C14DA /* Models */,
 				AD29AD171B68486A004AA36E /* Persistence.swift */,
 				AD29AD161B66FF03004AA36E /* ViewControllers */,
 				ADF66CC71B5D634200CE9C84 /* Main.storyboard */,
@@ -259,12 +296,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD29AD0B1B659B47004AA36E /* GreenFireworksSparks.sks in Resources */,
+				ADA8A66C1B6C17C4009C14DA /* 75328__oddworld__oddworld-explosionecho.wav in Resources */,
 				AD29AD1B1B685BE7004AA36E /* flameTrail.sks in Resources */,
 				AD29AD071B659AD5004AA36E /* YellowFireworksSparks.sks in Resources */,
 				ADF66CCE1B5D634200CE9C84 /* LaunchScreen.xib in Resources */,
 				AD74A6A21B649E3600F0AF4B /* spark.png in Resources */,
 				AD74A6A11B649E3600F0AF4B /* RedFireworksSparks.sks in Resources */,
 				ADF66CCB1B5D634200CE9C84 /* Images.xcassets in Resources */,
+				ADA8A66D1B6C17C4009C14DA /* 202230__deraj__pop-sound.wav in Resources */,
 				ADF66CC21B5D634200CE9C84 /* GameScene.sks in Resources */,
 				ADF66CC91B5D634200CE9C84 /* Main.storyboard in Resources */,
 				ADA8A6601B69B1FB009C14DA /* c7nazara.ttf in Resources */,
@@ -290,10 +329,15 @@
 				AD29AD0E1B66EFF6004AA36E /* highscores.swift in Sources */,
 				AD29AD101B66F067004AA36E /* GameOverViewController.swift in Sources */,
 				AD29AD121B66F171004AA36E /* MenuViewController.swift in Sources */,
+				ADA8A6621B6BFBC8009C14DA /* HowToPlayPageViewController.swift in Sources */,
 				ADF66CC61B5D634200CE9C84 /* GameViewController.swift in Sources */,
 				ADA8A65D1B69B134009C14DA /* TutorialData.swift in Sources */,
+				ADA8A6661B6C01C1009C14DA /* SettingsData.swift in Sources */,
+				ADA8A6701B6C1BB1009C14DA /* SettingsViewController.swift in Sources */,
 				ADF66CC01B5D634200CE9C84 /* AppDelegate.swift in Sources */,
+				ADA8A6691B6C177E009C14DA /* SoundEffects.swift in Sources */,
 				AD29AD141B66FE90004AA36E /* HighscoreViewController.swift in Sources */,
+				ADA8A6641B6BFBE4009C14DA /* HowToPlayContentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

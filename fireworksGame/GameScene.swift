@@ -9,6 +9,7 @@
 import Foundation
 import SpriteKit
 import UIKit
+import AudioToolbox
 
 //Set the sprite sizes for the rockets
 let rocketSize = CGSize(width: 50, height: 80)
@@ -16,13 +17,18 @@ let rocketSize = CGSize(width: 50, height: 80)
 
 
 let redFireworkEmitterPath: String = NSBundle.mainBundle().pathForResource("RedFireworksSparks", ofType: "sks")!
-let redFireworkEmitterNode = NSKeyedUnarchiver.unarchiveObjectWithFile(redFireworkEmitterPath) as! SKEmitterNode
 let yellowFireworkEmitterPath: String = NSBundle.mainBundle().pathForResource("YellowFireworksSparks", ofType: "sks")!
-let yellowFireworkEmitterNode = NSKeyedUnarchiver.unarchiveObjectWithFile(yellowFireworkEmitterPath) as! SKEmitterNode
 let greenFireworkEmitterPath: String = NSBundle.mainBundle().pathForResource("GreenFireworksSparks", ofType: "sks")!
-let greenFireworkEmitterNode = NSKeyedUnarchiver.unarchiveObjectWithFile(greenFireworkEmitterPath) as! SKEmitterNode
 let flameTrailEmitterPath: String = NSBundle.mainBundle().pathForResource("flameTrail", ofType: "sks")!
-let flameTrailEmitterNode = NSKeyedUnarchiver.unarchiveObjectWithFile(flameTrailEmitterPath) as! SKEmitterNode
+
+let explosionPath = NSBundle.mainBundle().pathForResource("75328__oddworld__oddworld-explosionecho", ofType: "wav")
+let explosionURL = NSURL(fileURLWithPath: explosionPath!)
+var explosionID: SystemSoundID = 0
+
+let launchPath = NSBundle.mainBundle().pathForResource("202230__deraj__pop-sound", ofType: "wav")
+let launchURL = NSURL(fileURLWithPath: launchPath!)
+var launchID: SystemSoundID = 1
+
 
 let fire = SKAction.moveToY(20, duration: 2)
 let death = SKAction.removeFromParent()
@@ -62,6 +68,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var model: GameModel?
     var scores: Highscores?
+    var settings: SettingsData?
     var numberOfRockets = 0
     private var timer: NSTimer?
     var TimeObserver: NSObjectProtocol?
@@ -73,7 +80,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         model = GameModel()
         scores = Highscores.Static.instance
+        settings = SettingsData.Static.instance
         startObservers()
+        AudioServicesCreateSystemSoundID(explosionURL, &explosionID)
+        AudioServicesCreateSystemSoundID(launchURL, &launchID)
         
         // Add score text
         scoreLabel.text = "00000"
@@ -275,6 +285,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         node.removeFromParent()
         explosion.position = deathLoc
         self.addChild(explosion)
+        playExplode()
         explosion.zPosition = CGFloat(-1)
         explosion.particleZPosition = CGFloat(-1)
         explosion.runAction(explode)
@@ -404,10 +415,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let maxVel = Double(round(sqrt(frameHeight*20)))
         let initialVel = Int(round(maxVel*0.8))
         let randomVel = Int(maxVel) - initialVel
-        println("Frame: \(frameHeight), Velocity = \(initialVel) + \(randomVel)")
+        //println("Frame: \(frameHeight), Velocity = \(initialVel) + \(randomVel)")
         let velocity = CGFloat(initialVel + Int(arc4random_uniform(UInt32(randomVel))))
-        println("Rocket \(rocket.name) of mass \(rocket.physicsBody!.mass) launched with velocity \(velocity)")
+        //println("Rocket \(rocket.name) of mass \(rocket.physicsBody!.mass) launched with velocity \(velocity)")
         rocket.physicsBody!.velocity.dy = velocity
+        playLaunch()
 
+    }
+    
+/////////// Play sounds ////////////////
+    
+    func playExplode(){
+        if !settings!.mutedSound {
+            AudioServicesPlaySystemSound(explosionID)
+        }
+    }
+    
+    func playLaunch(){
+        if !settings!.mutedSound {
+            AudioServicesPlaySystemSound(launchID)
+        }
     }
 }

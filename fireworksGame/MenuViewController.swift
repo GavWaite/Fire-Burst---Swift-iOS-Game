@@ -12,13 +12,16 @@ import UIKit
 class MenuViewController: UIViewController {
     
     var highscores: Highscores?
+    var settings: SettingsData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         highscores = Highscores.Static.instance
+        settings = SettingsData.Static.instance
         if let saveData = Persistence.restore() as? SuperSimpleSave {
             println("success!!")
             highscores!.scores = saveData.savedScores
+            settings!.mutedSound = saveData.soundMute
         }
         else {
             println("failure!! first time playing")

@@ -11,7 +11,7 @@ import Foundation
 
 class SuperSimpleSave: NSObject, NSCoding {
     var savedScores = [String : Int]()
-    var anotherVar: Int = 0
+    var soundMute: Bool = false
     
     // because we're inheriting from NSObject, must override
     override init() {
@@ -22,13 +22,13 @@ class SuperSimpleSave: NSObject, NSCoding {
     required init(coder aDecoder: NSCoder) {
         // Awaken from our custom persisted object on device filesystem
         savedScores = aDecoder.decodeObjectForKey("savedScores") as! [String : Int]
-        //anotherVar = aDecoder.decodeObjectForKey("anotherVar") as! Int
+        soundMute = aDecoder.decodeObjectForKey("soundMute") as! Bool
         super.init()
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(savedScores, forKey: "savedScores")
-        //aCoder.encodeObject(anotherVar, forKey: "anotherVar")
+        aCoder.encodeObject(soundMute, forKey: "soundMute")
     }
 }
 
