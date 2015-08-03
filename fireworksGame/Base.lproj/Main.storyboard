@@ -4,6 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -32,7 +33,7 @@
         <!--mainMenu-->
         <scene sceneID="bTS-q1-xfR">
             <objects>
-                <viewController title="mainMenu" id="XmU-54-yhi" customClass="MenuViewController" customModule="fireworksGame" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="mainMenu" id="XmU-54-yhi" customClass="MenuViewController" customModule="fireworksGames" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uqW-Qv-HG9"/>
                         <viewControllerLayoutGuide type="bottom" id="4ua-yY-2G4"/>
@@ -56,7 +57,7 @@
                                     <segue destination="qQD-Bt-HCq" kind="show" id="Hkh-Xb-5Lh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gwz-lH-8R0">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gwz-lH-8R0">
                                 <rect key="frame" x="258" y="327" width="84" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="fLK-qk-3G1"/>
@@ -101,7 +102,7 @@
                                     <segue destination="YaO-Xh-utn" kind="show" id="p0T-Dr-Em2"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ILLUMINATE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nRy-NW-Qur">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ILLUMINATE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nRy-NW-Qur">
                                 <rect key="frame" x="16" y="262" width="568" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="D3E-S5-QTA"/>
@@ -116,28 +117,54 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="9kh-Zz-IbO">
+                                <rect key="frame" x="131" y="238" width="338" height="87"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9kh-Zz-IbO" secondAttribute="height" multiplier="338:87" id="XDC-Oi-fry"/>
+                                    <constraint firstAttribute="width" constant="338" id="daG-91-QaR"/>
+                                    <constraint firstAttribute="width" constant="338" id="iGe-au-Zur"/>
+                                    <constraint firstAttribute="height" constant="87" id="oT6-9T-B5w"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="daG-91-QaR"/>
+                                        <exclude reference="iGe-au-Zur"/>
+                                        <exclude reference="oT6-9T-B5w"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="nRy-NW-Qur" firstAttribute="top" secondItem="uqW-Qv-HG9" secondAttribute="bottom" constant="194" id="16J-cB-7Pi"/>
                             <constraint firstItem="4ua-yY-2G4" firstAttribute="top" secondItem="tLV-vd-ugN" secondAttribute="bottom" constant="191" id="1ga-Ga-Jux"/>
+                            <constraint firstAttribute="centerX" secondItem="9kh-Zz-IbO" secondAttribute="centerX" id="1yP-fY-3qj"/>
                             <constraint firstItem="nRy-NW-Qur" firstAttribute="leading" secondItem="4SA-cm-Q4Q" secondAttribute="leadingMargin" id="48s-79-8T2"/>
+                            <constraint firstItem="9kh-Zz-IbO" firstAttribute="centerX" secondItem="nRy-NW-Qur" secondAttribute="centerX" id="57I-4g-1u7"/>
+                            <constraint firstItem="Gwz-lH-8R0" firstAttribute="top" secondItem="9kh-Zz-IbO" secondAttribute="bottom" constant="2" id="8jy-qd-4nr"/>
                             <constraint firstItem="V2L-Pi-4CR" firstAttribute="top" secondItem="uqW-Qv-HG9" secondAttribute="bottom" id="Bhw-pg-rPW"/>
+                            <constraint firstAttribute="centerY" secondItem="9kh-Zz-IbO" secondAttribute="centerY" constant="18.5" id="Cjk-IV-URA"/>
                             <constraint firstItem="mmJ-4i-ws6" firstAttribute="trailing" secondItem="V2L-Pi-4CR" secondAttribute="trailing" id="GKp-Ov-8M2"/>
                             <constraint firstItem="nRy-NW-Qur" firstAttribute="top" secondItem="4SA-cm-Q4Q" secondAttribute="top" constant="214" id="Ka2-E2-bDd"/>
                             <constraint firstAttribute="bottom" secondItem="tLV-vd-ugN" secondAttribute="bottom" constant="20" symbolic="YES" id="LrL-jl-oey"/>
+                            <constraint firstItem="Gwz-lH-8R0" firstAttribute="top" secondItem="9kh-Zz-IbO" secondAttribute="bottom" constant="15" id="S8A-UY-cAq"/>
                             <constraint firstItem="V2L-Pi-4CR" firstAttribute="trailing" secondItem="4SA-cm-Q4Q" secondAttribute="trailingMargin" id="caG-Gs-vug"/>
+                            <constraint firstItem="9kh-Zz-IbO" firstAttribute="leading" secondItem="4SA-cm-Q4Q" secondAttribute="leadingMargin" id="d7j-kH-Fca"/>
                             <constraint firstItem="Gwz-lH-8R0" firstAttribute="top" secondItem="uqW-Qv-HG9" secondAttribute="bottom" constant="307" id="dj0-WI-RNf"/>
                             <constraint firstItem="Gwz-lH-8R0" firstAttribute="centerX" secondItem="tLV-vd-ugN" secondAttribute="centerX" id="fE2-GV-Nl1"/>
                             <constraint firstItem="mmJ-4i-ws6" firstAttribute="top" secondItem="V2L-Pi-4CR" secondAttribute="bottom" constant="8" symbolic="YES" id="iqJ-2h-ZNW"/>
                             <constraint firstItem="mmJ-4i-ws6" firstAttribute="trailing" secondItem="nRy-NW-Qur" secondAttribute="trailing" id="mhF-oE-Ed0"/>
                             <constraint firstItem="nRy-NW-Qur" firstAttribute="top" secondItem="4SA-cm-Q4Q" secondAttribute="top" constant="262" id="wP4-2W-H38"/>
                             <constraint firstItem="nRy-NW-Qur" firstAttribute="centerX" secondItem="Gwz-lH-8R0" secondAttribute="centerX" id="yY7-4Y-lAq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9kh-Zz-IbO" secondAttribute="trailing" id="ydj-79-Aag"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="16J-cB-7Pi"/>
                                 <exclude reference="Ka2-E2-bDd"/>
+                                <exclude reference="57I-4g-1u7"/>
+                                <exclude reference="8jy-qd-4nr"/>
+                                <exclude reference="dj0-WI-RNf"/>
                                 <exclude reference="1ga-Ga-Jux"/>
                             </mask>
                         </variation>
@@ -150,7 +177,7 @@
         <!--settings-->
         <scene sceneID="MjR-qa-Ryk">
             <objects>
-                <viewController title="settings" id="qQD-Bt-HCq" customClass="SettingsViewController" customModule="fireworksGame" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="settings" id="qQD-Bt-HCq" customClass="SettingsViewController" customModule="fireworksGames" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xIx-cQ-qUf"/>
                         <viewControllerLayoutGuide type="bottom" id="e7t-7Y-oJv"/>
@@ -260,7 +287,7 @@
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="fireworksGame" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="fireworksGames" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="maK-i9-Uhn"/>
                         <viewControllerLayoutGuide type="bottom" id="khH-OB-KpY"/>
@@ -281,7 +308,7 @@
         <!--gameOver-->
         <scene sceneID="DH9-mo-NZI">
             <objects>
-                <viewController title="gameOver" id="5Pp-xf-4dp" customClass="GameOverViewController" customModule="fireworksGame" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="gameOver" id="5Pp-xf-4dp" customClass="GameOverViewController" customModule="fireworksGames" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="To1-2L-CuA"/>
                         <viewControllerLayoutGuide type="bottom" id="GSL-vB-MT7"/>
@@ -381,7 +408,7 @@
         <!--global-->
         <scene sceneID="nuh-om-Uhd">
             <objects>
-                <viewController title="global" id="YaO-Xh-utn" customClass="HighscoreViewController" customModule="fireworksGame" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="global" id="YaO-Xh-utn" customClass="HighscoreViewController" customModule="fireworksGames" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gQX-yG-Kac"/>
                         <viewControllerLayoutGuide type="bottom" id="bXH-oe-Fyy"/>
@@ -479,7 +506,7 @@
         <!--howToPlay-->
         <scene sceneID="Cvm-Fh-shl">
             <objects>
-                <viewController storyboardIdentifier="HowToPlayContentViewController" title="howToPlay" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Lzc-2T-mdw" customClass="HowToPlayContentViewController" customModule="fireworksGame" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HowToPlayContentViewController" title="howToPlay" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Lzc-2T-mdw" customClass="HowToPlayContentViewController" customModule="fireworksGames" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Srh-sP-qj4"/>
                         <viewControllerLayoutGuide type="bottom" id="fvm-Mq-haE"/>
@@ -572,15 +599,18 @@
         <!--howToPlayPageView-->
         <scene sceneID="U9r-ZZ-SkO">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" title="howToPlayPageView" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="uxi-3x-oVF" customClass="HowToPlayPageViewController" customModule="fireworksGame" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" title="howToPlayPageView" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="uxi-3x-oVF" customClass="HowToPlayPageViewController" customModule="fireworksGames" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WWL-8f-EGr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-679" y="603"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo" width="508" height="130"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wyo-5o-hcp"/>
-        <segue reference="oYd-SL-U0G"/>
-        <segue reference="PCh-o4-3hy"/>
+        <segue reference="USh-F4-HCm"/>
+        <segue reference="p0T-Dr-Em2"/>
     </inferredMetricsTieBreakers>
 </document>

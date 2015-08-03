@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "ADF66CB91B5D634200CE9C84"
-               BuildableName = "fireworksGame.app"
-               BlueprintName = "fireworksGame"
+               BuildableName = "Fire Burst!.app"
+               BlueprintName = "fireworksGames"
                ReferencedContainer = "container:fireworksGame.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,8 +29,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "ADF66CD21B5D634200CE9C84"
-               BuildableName = "fireworksGameTests.xctest"
-               BlueprintName = "fireworksGameTests"
+               BuildableName = "Fire Burst!Tests.xctest"
+               BlueprintName = "fireworksGamesTests"
                ReferencedContainer = "container:fireworksGame.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,8 +47,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "ADF66CD21B5D634200CE9C84"
-               BuildableName = "fireworksGameTests.xctest"
-               BlueprintName = "fireworksGameTests"
+               BuildableName = "Fire Burst!Tests.xctest"
+               BlueprintName = "fireworksGamesTests"
                ReferencedContainer = "container:fireworksGame.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -57,8 +57,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ADF66CB91B5D634200CE9C84"
-            BuildableName = "fireworksGame.app"
-            BlueprintName = "fireworksGame"
+            BuildableName = "Fire Burst!.app"
+            BlueprintName = "fireworksGames"
             ReferencedContainer = "container:fireworksGame.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -77,8 +77,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ADF66CB91B5D634200CE9C84"
-            BuildableName = "fireworksGame.app"
-            BlueprintName = "fireworksGame"
+            BuildableName = "Fire Burst!.app"
+            BlueprintName = "fireworksGames"
             ReferencedContainer = "container:fireworksGame.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -96,8 +96,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ADF66CB91B5D634200CE9C84"
-            BuildableName = "fireworksGame.app"
-            BlueprintName = "fireworksGame"
+            BuildableName = "Fire Burst!.app"
+            BlueprintName = "fireworksGames"
             ReferencedContainer = "container:fireworksGame.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

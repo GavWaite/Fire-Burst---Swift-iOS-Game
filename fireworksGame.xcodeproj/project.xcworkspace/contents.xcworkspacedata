@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:fireworksGame.xcodeproj">
+      location = "self:/Users/gavwaite/Documents/University/Harvard Summer/Mobile Application development using Swift and iOS/Assignments/fireworksGame/fireworksGame.xcodeproj">
    </FileRef>
 </Workspace>

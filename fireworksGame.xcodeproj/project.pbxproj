@@ -66,7 +66,7 @@
 		ADA8A66A1B6C17C4009C14DA /* 75328__oddworld__oddworld-explosionecho.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "75328__oddworld__oddworld-explosionecho.wav"; sourceTree = "<group>"; };
 		ADA8A66B1B6C17C4009C14DA /* 202230__deraj__pop-sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "202230__deraj__pop-sound.wav"; sourceTree = "<group>"; };
 		ADA8A66F1B6C1BB1009C14DA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		ADF66CBA1B5D634200CE9C84 /* fireworksGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fireworksGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADF66CBA1B5D634200CE9C84 /* fireworksGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fireworksGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADF66CBE1B5D634200CE9C84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADF66CBF1B5D634200CE9C84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADF66CC11B5D634200CE9C84 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 		ADF66CC81B5D634200CE9C84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ADF66CCA1B5D634200CE9C84 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		ADF66CCD1B5D634200CE9C84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		ADF66CD31B5D634200CE9C84 /* fireworksGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fireworksGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADF66CD31B5D634200CE9C84 /* fireworksGamesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fireworksGamesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADF66CD81B5D634200CE9C84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADF66CD91B5D634200CE9C84 /* fireworksGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fireworksGameTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,8 +164,8 @@
 		ADF66CBB1B5D634200CE9C84 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ADF66CBA1B5D634200CE9C84 /* fireworksGame.app */,
-				ADF66CD31B5D634200CE9C84 /* fireworksGameTests.xctest */,
+				ADF66CBA1B5D634200CE9C84 /* fireworksGames.app */,
+				ADF66CD31B5D634200CE9C84 /* fireworksGamesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -173,17 +173,17 @@
 		ADF66CBC1B5D634200CE9C84 /* fireworksGame */ = {
 			isa = PBXGroup;
 			children = (
-				AD29AD151B66FEF4004AA36E /* Particle Effects */,
 				ADF66CC11B5D634200CE9C84 /* GameScene.sks */,
 				ADF66CC31B5D634200CE9C84 /* GameScene.swift */,
 				ADA8A6681B6C177E009C14DA /* SoundEffects.swift */,
-				ADA8A66E1B6C17C9009C14DA /* Sound Effects */,
 				ADA8A6671B6C0214009C14DA /* Models */,
-				AD29AD171B68486A004AA36E /* Persistence.swift */,
 				AD29AD161B66FF03004AA36E /* ViewControllers */,
 				ADF66CC71B5D634200CE9C84 /* Main.storyboard */,
 				ADF66CCA1B5D634200CE9C84 /* Images.xcassets */,
+				AD29AD171B68486A004AA36E /* Persistence.swift */,
 				ADF66CBF1B5D634200CE9C84 /* AppDelegate.swift */,
+				ADA8A66E1B6C17C9009C14DA /* Sound Effects */,
+				AD29AD151B66FEF4004AA36E /* Particle Effects */,
 				ADA8A65E1B69B144009C14DA /* Resources */,
 				ADF66CBD1B5D634200CE9C84 /* Supporting Files */,
 			);
@@ -218,9 +218,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		ADF66CB91B5D634200CE9C84 /* fireworksGame */ = {
+		ADF66CB91B5D634200CE9C84 /* fireworksGames */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ADF66CDD1B5D634200CE9C84 /* Build configuration list for PBXNativeTarget "fireworksGame" */;
+			buildConfigurationList = ADF66CDD1B5D634200CE9C84 /* Build configuration list for PBXNativeTarget "fireworksGames" */;
 			buildPhases = (
 				ADF66CB61B5D634200CE9C84 /* Sources */,
 				ADF66CB71B5D634200CE9C84 /* Frameworks */,
@@ -230,14 +230,14 @@
 			);
 			dependencies = (
 			);
-			name = fireworksGame;
+			name = fireworksGames;
 			productName = fireworksGame;
-			productReference = ADF66CBA1B5D634200CE9C84 /* fireworksGame.app */;
+			productReference = ADF66CBA1B5D634200CE9C84 /* fireworksGames.app */;
 			productType = "com.apple.product-type.application";
 		};
-		ADF66CD21B5D634200CE9C84 /* fireworksGameTests */ = {
+		ADF66CD21B5D634200CE9C84 /* fireworksGamesTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ADF66CE01B5D634200CE9C84 /* Build configuration list for PBXNativeTarget "fireworksGameTests" */;
+			buildConfigurationList = ADF66CE01B5D634200CE9C84 /* Build configuration list for PBXNativeTarget "fireworksGamesTests" */;
 			buildPhases = (
 				ADF66CCF1B5D634200CE9C84 /* Sources */,
 				ADF66CD01B5D634200CE9C84 /* Frameworks */,
@@ -248,9 +248,9 @@
 			dependencies = (
 				ADF66CD51B5D634200CE9C84 /* PBXTargetDependency */,
 			);
-			name = fireworksGameTests;
+			name = fireworksGamesTests;
 			productName = fireworksGameTests;
-			productReference = ADF66CD31B5D634200CE9C84 /* fireworksGameTests.xctest */;
+			productReference = ADF66CD31B5D634200CE9C84 /* fireworksGamesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -284,8 +284,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				ADF66CB91B5D634200CE9C84 /* fireworksGame */,
-				ADF66CD21B5D634200CE9C84 /* fireworksGameTests */,
+				ADF66CB91B5D634200CE9C84 /* fireworksGames */,
+				ADF66CD21B5D634200CE9C84 /* fireworksGamesTests */,
 			);
 		};
 /* End PBXProject section */
@@ -354,7 +354,7 @@
 /* Begin PBXTargetDependency section */
 		ADF66CD51B5D634200CE9C84 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = ADF66CB91B5D634200CE9C84 /* fireworksGame */;
+			target = ADF66CB91B5D634200CE9C84 /* fireworksGames */;
 			targetProxy = ADF66CD41B5D634200CE9C84 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -468,7 +468,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = fireworksGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = fireworksGames;
 			};
 			name = Debug;
 		};
@@ -478,7 +478,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = fireworksGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = fireworksGames;
 			};
 			name = Release;
 		};
@@ -496,7 +496,7 @@
 				);
 				INFOPLIST_FILE = fireworksGameTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = fireworksGamesTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/fireworksGame.app/fireworksGame";
 			};
 			name = Debug;
@@ -511,7 +511,7 @@
 				);
 				INFOPLIST_FILE = fireworksGameTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = fireworksGamesTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/fireworksGame.app/fireworksGame";
 			};
 			name = Release;
@@ -528,7 +528,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ADF66CDD1B5D634200CE9C84 /* Build configuration list for PBXNativeTarget "fireworksGame" */ = {
+		ADF66CDD1B5D634200CE9C84 /* Build configuration list for PBXNativeTarget "fireworksGames" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ADF66CDE1B5D634200CE9C84 /* Debug */,
@@ -537,7 +537,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ADF66CE01B5D634200CE9C84 /* Build configuration list for PBXNativeTarget "fireworksGameTests" */ = {
+		ADF66CE01B5D634200CE9C84 /* Build configuration list for PBXNativeTarget "fireworksGamesTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ADF66CE11B5D634200CE9C84 /* Debug */,
