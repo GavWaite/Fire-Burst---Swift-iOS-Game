@@ -19,6 +19,10 @@ let rocketSize = CGSize(width: 50, height: 80)
 let redFireworkEmitterPath: String = NSBundle.mainBundle().pathForResource("RedFireworksSparks", ofType: "sks")!
 let yellowFireworkEmitterPath: String = NSBundle.mainBundle().pathForResource("YellowFireworksSparks", ofType: "sks")!
 let greenFireworkEmitterPath: String = NSBundle.mainBundle().pathForResource("GreenFireworksSparks", ofType: "sks")!
+let pinkFireworkEmitterPath: String = NSBundle.mainBundle().pathForResource("PinkFireworksSparks", ofType: "sks")!
+let purpleFireworkEmitterPath: String = NSBundle.mainBundle().pathForResource("PurpleFireworksSparks", ofType: "sks")!
+let orangeFireworkEmitterPath: String = NSBundle.mainBundle().pathForResource("OrangeFireworksSparks", ofType: "sks")!
+let blueFireworkEmitterPath: String = NSBundle.mainBundle().pathForResource("BlueFireworksSparks", ofType: "sks")!
 let flameTrailEmitterPath: String = NSBundle.mainBundle().pathForResource("flameTrail", ofType: "sks")!
 
 let explosionPath = NSBundle.mainBundle().pathForResource("75328__oddworld__oddworld-explosionecho", ofType: "wav")
@@ -35,11 +39,11 @@ let death = SKAction.removeFromParent()
 let wait = SKAction.waitForDuration(1)
 let explode = SKAction.sequence([wait, death])
 
-struct fireworksProbabilities {
-    static var redP = 100
-    static var yelP = 25
-    static var greenP = 5
-}
+//struct fireworksProbabilities {
+//    static var redP = 100
+//    static var yelP = 25
+//    static var greenP = 5
+//}
 
 struct GameModel {
     var score = 0
@@ -164,7 +168,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     }
                     center.postNotification(notification)
                 }
-                    
+                else if nameN.hasPrefix("orangeR"){
+                    exploded(node, color: "orange")
+                    let rktNum = (nameN as NSString).substringFromIndex(7)
+                    let trlNum = "trail\(rktNum)"
+                    if let trail = self.childNodeWithName(trlNum){
+                        trail.removeFromParent()
+                    }
+                    center.postNotification(notification)
+                }
                 else if nameN.hasPrefix("yellowR"){
                     exploded(node, color: "yellow")
                     let rktNum = (nameN as NSString).substringFromIndex(7)
@@ -177,6 +189,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 else if nameN.hasPrefix("greenR"){
                     exploded(node, color: "green")
                     let rktNum = (nameN as NSString).substringFromIndex(6)
+                    let trlNum = "trail\(rktNum)"
+                    if let trail = self.childNodeWithName(trlNum){
+                        trail.removeFromParent()
+                    }
+                    center.postNotification(notification)
+                }
+                else if nameN.hasPrefix("blueR"){
+                    exploded(node, color: "blue")
+                    let rktNum = (nameN as NSString).substringFromIndex(5)
+                    let trlNum = "trail\(rktNum)"
+                    if let trail = self.childNodeWithName(trlNum){
+                        trail.removeFromParent()
+                    }
+                    center.postNotification(notification)
+                }
+                else if nameN.hasPrefix("purpleR"){
+                    exploded(node, color: "purple")
+                    let rktNum = (nameN as NSString).substringFromIndex(7)
+                    let trlNum = "trail\(rktNum)"
+                    if let trail = self.childNodeWithName(trlNum){
+                        trail.removeFromParent()
+                    }
+                    center.postNotification(notification)
+                }
+                else if nameN.hasPrefix("pinkR"){
+                    exploded(node, color: "pink")
+                    let rktNum = (nameN as NSString).substringFromIndex(5)
                     let trlNum = "trail\(rktNum)"
                     if let trail = self.childNodeWithName(trlNum){
                         trail.removeFromParent()
@@ -273,10 +312,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         switch color{
         case "red":
             explosion = NSKeyedUnarchiver.unarchiveObjectWithFile(redFireworkEmitterPath) as! SKEmitterNode
+        case "orange":
+            explosion = NSKeyedUnarchiver.unarchiveObjectWithFile(orangeFireworkEmitterPath) as! SKEmitterNode
         case "yellow":
             explosion = NSKeyedUnarchiver.unarchiveObjectWithFile(yellowFireworkEmitterPath) as! SKEmitterNode
         case "green":
             explosion = NSKeyedUnarchiver.unarchiveObjectWithFile(greenFireworkEmitterPath) as! SKEmitterNode
+        case "blue":
+            explosion = NSKeyedUnarchiver.unarchiveObjectWithFile(blueFireworkEmitterPath) as! SKEmitterNode
+        case "purple":
+            explosion = NSKeyedUnarchiver.unarchiveObjectWithFile(purpleFireworkEmitterPath) as! SKEmitterNode
+        case "pink":
+            explosion = NSKeyedUnarchiver.unarchiveObjectWithFile(pinkFireworkEmitterPath) as! SKEmitterNode
         default:
             explosion = NSKeyedUnarchiver.unarchiveObjectWithFile(redFireworkEmitterPath) as! SKEmitterNode
         }
@@ -300,11 +347,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         for i in 0...numberOfRockets {
             if let trl = self.childNodeWithName("trail\(i)"){
-                if let red  = self.childNodeWithName("redR\(i)"){
-//                            if red.physicsBody!.velocity.dy > 1308 {
-//                                println("Weird rocket initial speed of \(red.physicsBody!.velocity.dy)")
-//                                red.physicsBody!.velocity.dy = 1307
-//                            }
+                if let red = self.childNodeWithName("redR\(i)"){
                     let up = red.physicsBody!.velocity.dy >= 0
                     let pos = red.position
                     if up {
@@ -315,7 +358,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         red.yScale = -1
                     }
                 }
-                if let yel  = self.childNodeWithName("yellowR\(i)"){
+                if let yel = self.childNodeWithName("yellowR\(i)"){
                     let up = yel.physicsBody!.velocity.dy >= 0
                     let pos = yel.position
                     if up {
@@ -327,7 +370,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     }
                     
                 }
-                if let grn  = self.childNodeWithName("greenR\(i)"){
+                if let ora = self.childNodeWithName("orangeR\(i)"){
+                    let up = ora.physicsBody!.velocity.dy >= 0
+                    let pos = ora.position
+                    if up {
+                        trl.position = CGPoint(x: pos.x, y:pos.y)
+                    }
+                    else {
+                        trl.removeFromParent()
+                        ora.yScale = -1
+                    }
+                    
+                }
+                if let grn = self.childNodeWithName("greenR\(i)"){
                     let up = grn.physicsBody!.velocity.dy >= 0
                     let pos = grn.position
                     if up {
@@ -338,21 +393,66 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         grn.yScale = -1
                     }
                 }
+                if let blu = self.childNodeWithName("blueR\(i)"){
+                    let up = blu.physicsBody!.velocity.dy >= 0
+                    let pos = blu.position
+                    if up {
+                        trl.position = CGPoint(x: pos.x, y:pos.y)
+                    }
+                    else {
+                        trl.removeFromParent()
+                        blu.yScale = -1
+                    }
+                    
+                }
+                if let pur = self.childNodeWithName("purpleR\(i)"){
+                    let up = pur.physicsBody!.velocity.dy >= 0
+                    let pos = pur.position
+                    if up {
+                        trl.position = CGPoint(x: pos.x, y:pos.y)
+                    }
+                    else {
+                        trl.removeFromParent()
+                        pur.yScale = -1
+                    }
+                    
+                }
+                if let pin = self.childNodeWithName("pinkR\(i)"){
+                    let up = pin.physicsBody!.velocity.dy >= 0
+                    let pos = pin.position
+                    if up {
+                        trl.position = CGPoint(x: pos.x, y:pos.y)
+                    }
+                    else {
+                        trl.removeFromParent()
+                        pin.yScale = -1
+                    }
+                    
+                }
             }
         }
     }
     
     func setUpNewRocket() {
         // Decide what kind of rocket to fire
-        let roll = Int(arc4random_uniform(100))
-        if fireworksProbabilities.greenP > roll {
-            fireRocket("green")
-        }
-        else if fireworksProbabilities.yelP > roll {
-            fireRocket("yellow")
-        }
-        else {
+        let roll = Int(arc4random_uniform(7))
+        switch roll{
+        case 0:
             fireRocket("red")
+        case 1:
+            fireRocket("orange")
+        case 2:
+            fireRocket("yellow")
+        case 3:
+            fireRocket("green")
+        case 4:
+            fireRocket("blue")
+        case 5:
+            fireRocket("purple")
+        case 6:
+            fireRocket("pink")
+        default:
+            assertionFailure("Invalid rocket number was rolled")
         }
     }
     
@@ -365,10 +465,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Initialise the rocket, depending on the color
         switch color{
         case "red":
-            //rocket = SKSpriteNode(color: UIColor.redColor(), size: rocketSize)
             rocket = SKSpriteNode(imageNamed: "redRocket")
             rocket.size = rocketSize
             rocket.name="redR\(numberOfRockets)"
+        case "orange":
+            rocket = SKSpriteNode(imageNamed: "orangeRocket")
+            rocket.size = rocketSize
+            rocket.name="orangeR\(numberOfRockets)"
         case "yellow":
             rocket = SKSpriteNode(imageNamed: "yellowRocket")
             rocket.size = rocketSize
@@ -377,8 +480,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             rocket = SKSpriteNode(imageNamed: "greenRocket")
             rocket.size = rocketSize
             rocket.name="greenR\(numberOfRockets)"
+        case "blue":
+            rocket = SKSpriteNode(imageNamed: "blueRocket")
+            rocket.size = rocketSize
+            rocket.name="blueR\(numberOfRockets)"
+        case "purple":
+            rocket = SKSpriteNode(imageNamed: "purpleRocket")
+            rocket.size = rocketSize
+            rocket.name="purpleR\(numberOfRockets)"
+        case "pink":
+            rocket = SKSpriteNode(imageNamed: "pinkRocket")
+            rocket.size = rocketSize
+            rocket.name="pinkR\(numberOfRockets)"
         default:
-            assertionFailure("werid color rocket")
+            assertionFailure("weird color rocket")
             rocket = SKSpriteNode(color: UIColor.blueColor(), size: rocketSize)
         }
         
