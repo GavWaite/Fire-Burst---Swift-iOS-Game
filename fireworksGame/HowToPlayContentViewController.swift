@@ -22,20 +22,12 @@ class HowToPlayContentViewController: UIViewController {
 
     var data = TutorialData()
     
-//    init(index: Int){
-//        itemIndex = index
-//        super.init()
-//    }
-    
-
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tutorialTitle.text = data.tutorialTitles[itemIndex]
         tutorialText.text = data.tutorialTexts[itemIndex]
-        //tutorialImage.image = data.tutorialImages[index]
-        //tutorialImage!.image = UIImage(named: imageName)
+        let imgName = data.tutorialImages[itemIndex]
+        tutorialImage!.image = UIImage(named: imgName)
     }
     
 }
