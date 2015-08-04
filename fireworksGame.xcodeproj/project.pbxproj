@@ -17,6 +17,7 @@
 		AD29AD1B1B685BE7004AA36E /* flameTrail.sks in Resources */ = {isa = PBXBuildFile; fileRef = AD29AD191B685BE7004AA36E /* flameTrail.sks */; };
 		AD74A6A11B649E3600F0AF4B /* RedFireworksSparks.sks in Resources */ = {isa = PBXBuildFile; fileRef = AD74A69F1B649E3600F0AF4B /* RedFireworksSparks.sks */; };
 		AD74A6A21B649E3600F0AF4B /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = AD74A6A01B649E3600F0AF4B /* spark.png */; };
+		AD8BC1D31B713282006310D1 /* EmitterPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8BC1D21B713282006310D1 /* EmitterPaths.swift */; };
 		ADA8A65D1B69B134009C14DA /* TutorialData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA8A65C1B69B134009C14DA /* TutorialData.swift */; };
 		ADA8A6601B69B1FB009C14DA /* c7nazara.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADA8A65F1B69B1FB009C14DA /* c7nazara.ttf */; };
 		ADA8A6621B6BFBC8009C14DA /* HowToPlayPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA8A6611B6BFBC8009C14DA /* HowToPlayPageViewController.swift */; };
@@ -61,6 +62,7 @@
 		AD29AD191B685BE7004AA36E /* flameTrail.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = flameTrail.sks; sourceTree = "<group>"; };
 		AD74A69F1B649E3600F0AF4B /* RedFireworksSparks.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = RedFireworksSparks.sks; path = ../RedFireworksSparks.sks; sourceTree = "<group>"; };
 		AD74A6A01B649E3600F0AF4B /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spark.png; path = ../spark.png; sourceTree = "<group>"; };
+		AD8BC1D21B713282006310D1 /* EmitterPaths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmitterPaths.swift; sourceTree = "<group>"; };
 		ADA8A65C1B69B134009C14DA /* TutorialData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialData.swift; sourceTree = "<group>"; };
 		ADA8A65F1B69B1FB009C14DA /* c7nazara.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = c7nazara.ttf; sourceTree = "<group>"; };
 		ADA8A6611B6BFBC8009C14DA /* HowToPlayPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToPlayPageViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				ADA8A6651B6C01C1009C14DA /* SettingsData.swift */,
 				ADA8A65C1B69B134009C14DA /* TutorialData.swift */,
 				AD29AD171B68486A004AA36E /* Persistence.swift */,
+				AD8BC1D21B713282006310D1 /* EmitterPaths.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				ADA8A6621B6BFBC8009C14DA /* HowToPlayPageViewController.swift in Sources */,
 				ADF66CC61B5D634200CE9C84 /* GameViewController.swift in Sources */,
 				ADA8A65D1B69B134009C14DA /* TutorialData.swift in Sources */,
+				AD8BC1D31B713282006310D1 /* EmitterPaths.swift in Sources */,
 				ADA8A6661B6C01C1009C14DA /* SettingsData.swift in Sources */,
 				ADA8A6701B6C1BB1009C14DA /* SettingsViewController.swift in Sources */,
 				ADF66CC01B5D634200CE9C84 /* AppDelegate.swift in Sources */,

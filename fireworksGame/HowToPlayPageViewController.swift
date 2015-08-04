@@ -11,11 +11,7 @@ import UIKit
 
 class HowToPlayPageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
-    //weak var dataSource: UIPageViewControllerDataSource? = HowToPlayContentViewController
     var data = TutorialData()
-    //var pageViewController : HowToPlayContentViewController!
-//    self.dataSource = self
-//    self.delegate = self
     
     override func viewDidLoad() {
         super.viewDidLoad()

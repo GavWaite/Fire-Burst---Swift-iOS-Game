@@ -14,19 +14,6 @@ import AudioToolbox
 
 //////////// Convenience constants /////////////////
 
-// Set the sprite sizes for the rockets
-let rocketSize = CGSize(width: 50, height: 80)
-
-// File paths to the emitter .sks files
-let redFireworkEmitterPath: String = NSBundle.mainBundle().pathForResource("RedFireworksSparks", ofType: "sks")!
-let yellowFireworkEmitterPath: String = NSBundle.mainBundle().pathForResource("YellowFireworksSparks", ofType: "sks")!
-let greenFireworkEmitterPath: String = NSBundle.mainBundle().pathForResource("GreenFireworksSparks", ofType: "sks")!
-let pinkFireworkEmitterPath: String = NSBundle.mainBundle().pathForResource("PinkFireworksSparks", ofType: "sks")!
-let purpleFireworkEmitterPath: String = NSBundle.mainBundle().pathForResource("PurpleFireworksSparks", ofType: "sks")!
-let orangeFireworkEmitterPath: String = NSBundle.mainBundle().pathForResource("OrangeFireworksSparks", ofType: "sks")!
-let blueFireworkEmitterPath: String = NSBundle.mainBundle().pathForResource("BlueFireworksSparks", ofType: "sks")!
-let flameTrailEmitterPath: String = NSBundle.mainBundle().pathForResource("flameTrail", ofType: "sks")!
-
 // File paths and Sound IDs for the sound effects
 let explosionPath = NSBundle.mainBundle().pathForResource("75328__oddworld__oddworld-explosionecho", ofType: "wav")
 let explosionURL = NSURL(fileURLWithPath: explosionPath!)
@@ -42,7 +29,7 @@ let death = SKAction.removeFromParent()
 let wait = SKAction.waitForDuration(1)
 let explode = SKAction.sequence([wait, death])
 
-
+// Timer notification strings
 struct TimerApp {
     static let NotificationName = "AppLifeCycle" // This is our radio station
     static let MessageKey = "message"
@@ -55,27 +42,37 @@ struct TimerApp {
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    // Set the sprite sizes for the rockets
+    let rocketSize = CGSize(width: 50, height: 80)
+    
+    // Set the collison mask categories
     let rocketCategory: UInt32 = 0x1 << 0
     let floorCategory: UInt32 = 0x1 << 1
     let nothingCategory: UInt32 = 0x1 << 2
     
+    // Declare the model references
     var model: GameModel?
     var scores: Highscores?
     var settings: SettingsData?
-    var numberOfRockets = 0
+    var emitters: EmitterPaths?
     private var timer: NSTimer?
     var TimeObserver: NSObjectProtocol?
     
+    var numberOfRockets = 0
+    
+    // Initialise the game scene labels
     let launch = SKLabelNode(fontNamed:"C7nazara")
     let scoreLabel = SKLabelNode(fontNamed:"Helvetica")
     let livesLabel = SKLabelNode(fontNamed:"Helvetica")
     
+//////////////////////// Scene set-up /////////////////////////
+    
     override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
         
-        model = GameModel()
+        model = GameModel() // the current game data
         scores = Highscores.Static.instance
         settings = SettingsData.Static.instance
+        emitters = EmitterPaths()
         startObservers()
         AudioServicesCreateSystemSoundID(explosionURL, &explosionID)
         AudioServicesCreateSystemSoundID(launchURL, &launchID)
@@ -123,6 +120,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         
     }
+    
+/////////////////////////// User touches the scene //////////////////////////////
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         /* Called when a touch begins */
@@ -209,7 +208,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-////////////////////////////// Collisions ///////////////////////////////////////////////
+///////////////////////////////////// Collisions ///////////////////////////////////////////////
     
     func didBeginContact(contact: SKPhysicsContact) {
         
@@ -292,25 +291,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let explosion: SKEmitterNode
         
         // Load the correct explosion SKEmitterNode
-        switch color{
-        case "red":
-            explosion = NSKeyedUnarchiver.unarchiveObjectWithFile(redFireworkEmitterPath) as! SKEmitterNode
-        case "orange":
-            explosion = NSKeyedUnarchiver.unarchiveObjectWithFile(orangeFireworkEmitterPath) as! SKEmitterNode
-        case "yellow":
-            explosion = NSKeyedUnarchiver.unarchiveObjectWithFile(yellowFireworkEmitterPath) as! SKEmitterNode
-        case "green":
-            explosion = NSKeyedUnarchiver.unarchiveObjectWithFile(greenFireworkEmitterPath) as! SKEmitterNode
-        case "blue":
-            explosion = NSKeyedUnarchiver.unarchiveObjectWithFile(blueFireworkEmitterPath) as! SKEmitterNode
-        case "purple":
-            explosion = NSKeyedUnarchiver.unarchiveObjectWithFile(purpleFireworkEmitterPath) as! SKEmitterNode
-        case "pink":
-            explosion = NSKeyedUnarchiver.unarchiveObjectWithFile(pinkFireworkEmitterPath) as! SKEmitterNode
-        default:
-            explosion = NSKeyedUnarchiver.unarchiveObjectWithFile(redFireworkEmitterPath) as! SKEmitterNode
-        }
+        explosion = NSKeyedUnarchiver.unarchiveObjectWithFile(emitters!.emitterPathDictionary[color]!) as! SKEmitterNode
         
+        // Add the explosion emitter
         let deathLoc = node.position
         node.removeFromParent()
         explosion.position = deathLoc
@@ -412,10 +395,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    
+    // Decide what kind of rocket to fire
     func setUpNewRocket() {
-        // Decide what kind of rocket to fire
         let roll = Int(arc4random_uniform(7))
+        
         switch roll{
         case 0:
             fireRocket("red")
@@ -449,7 +432,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         rocket.name = "\(RName)\(numberOfRockets)"
         
         // Initialise the flame trail
-        trail = NSKeyedUnarchiver.unarchiveObjectWithFile(flameTrailEmitterPath) as! SKEmitterNode
+        trail = NSKeyedUnarchiver.unarchiveObjectWithFile(emitters!.emitterPathDictionary["trail"]!) as! SKEmitterNode
         trail.name = "trail\(numberOfRockets)"
         
         // Decide where to randomly launch the rocket from

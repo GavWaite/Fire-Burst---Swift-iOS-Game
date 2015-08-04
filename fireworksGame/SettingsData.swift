@@ -10,7 +10,6 @@ import Foundation
 
 class SettingsData {
     
-    //var basicFont = false
     var mutedSound = false
     
     struct Static {
