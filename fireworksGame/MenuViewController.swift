@@ -24,11 +24,11 @@ class MenuViewController: UIViewController {
             settings!.mutedSound = saveData.soundMute
         }
         else {
-            println("failure!! first time playing")
+            println("First time playing, no save data")
         }
         if highscores!.scores.count == 0 {
-            highscores!.scores["Developer"] = 10000
-            println("Added developer score of 10000")
+            highscores!.scores["Developer"] = 15200
+            println("Added developer score of 15200")
         }
     }
     

@@ -15,7 +15,6 @@ class SuperSimpleSave: NSObject, NSCoding {
     
     // because we're inheriting from NSObject, must override
     override init() {
-        //superSimpleSaveString = "Super String, Saved Simply"
         super.init()
     }
     

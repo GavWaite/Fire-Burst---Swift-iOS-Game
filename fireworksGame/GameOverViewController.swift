@@ -42,6 +42,7 @@ class GameOverViewController: UIViewController {
         
         namePrompt.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
             textField.placeholder = "Name"
+            textField.autocapitalizationType = UITextAutocapitalizationType.Words
             inputTextField = textField
         })
         
