@@ -21,6 +21,7 @@ class HighscoreViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // http://stackoverflow.com/questions/11068498/connect-uitableview-datasource-delegate-to-base-uiviewcontroller-class
         leaderboard.dataSource = self
         leaderboard.delegate = self
         highscores = Highscores.Static.instance

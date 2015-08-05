@@ -6,6 +6,15 @@
 //  Copyright (c) 2015 Gavin Waite. All rights reserved.
 //
 
+// Overall References
+// http://code.tutsplus.com/tutorials/build-an-airplane-game-with-sprite-kit-enemies-emitters--mobile-19916
+// Used this for comparison of several ideas, such as the flame trail vs their smoke trail
+//
+// Example code from the lectures was used for reference and in the case of Persistence.swift was used entirely
+//
+// The triple finger tap 'Quick Help' Apple Reference was used very frequently
+
+
 import Foundation
 import SpriteKit
 import UIKit
@@ -14,6 +23,7 @@ import AudioToolbox
 
 //////////// Convenience constants /////////////////
 
+//http://stackoverflow.com/questions/24043904/creating-and-playing-a-sound-in-swift
 // File paths and Sound IDs for the sound effects
 let explosionPath = NSBundle.mainBundle().pathForResource("75328__oddworld__oddworld-explosionecho", ofType: "wav")
 let explosionURL = NSURL(fileURLWithPath: explosionPath!)
@@ -23,6 +33,7 @@ let launchPath = NSBundle.mainBundle().pathForResource("202230__deraj__pop-sound
 let launchURL = NSURL(fileURLWithPath: launchPath!)
 var launchID: SystemSoundID = 1
 
+//https://developer.apple.com/library/prerelease/ios/documentation/SpriteKit/Reference/SKAction_Ref/index.html#//apple_ref/occ/clm/SKAction/followPath:speed:
 // SKAction shortcuts
 let fire = SKAction.moveToY(20, duration: 2)
 let death = SKAction.removeFromParent()
@@ -45,6 +56,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // Set the sprite sizes for the rockets
     let rocketSize = CGSize(width: 50, height: 80)
     
+    //https://developer.apple.com/library/prerelease/ios/documentation/SpriteKit/Reference/SKPhysicsBody_Ref/#//apple_ref/occ/instp/SKPhysicsBody/collisionBitMask
+    //http://www.techotopia.com/index.php/A_Swift_iOS_8_Sprite_Kit_Collision_Handling_Tutorial
     // Set the collison mask categories
     let rocketCategory: UInt32 = 0x1 << 0
     let floorCategory: UInt32 = 0x1 << 1
@@ -290,6 +303,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func exploded(node: SKNode, color: String){
         let explosion: SKEmitterNode
         
+        //http://stackoverflow.com/questions/24083938/adding-a-particle-emitter-to-the-flappyswift-project
+        //http://goobbe.com/questions/4782463/adding-emitter-node-to-sks-file-and-using-it-xcode-6-0-swift
         // Load the correct explosion SKEmitterNode
         explosion = NSKeyedUnarchiver.unarchiveObjectWithFile(emitters!.emitterPathDictionary[color]!) as! SKEmitterNode
         
@@ -397,6 +412,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // Decide what kind of rocket to fire
     func setUpNewRocket() {
+        // http://stackoverflow.com/questions/24007129/how-does-one-generate-a-random-number-in-apples-swift-language
         let roll = Int(arc4random_uniform(7))
         
         switch roll{

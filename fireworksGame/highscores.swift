@@ -1,5 +1,5 @@
 //
-//  highscores.swift
+//  Highscores.swift
 //  fireworksGame
 //
 //  Created by Gavin Waite on 27/07/2015.
@@ -31,6 +31,7 @@ class Highscores{
         return scoreArr
     }
     
+    //http://stackoverflow.com/questions/27978376/lets-make-mvc-singletons-and-data-sharing-across-multiple-view-controllers-cl
     struct Static {
         static let instance = Highscores()
     }

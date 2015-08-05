@@ -20,6 +20,7 @@ class GameOverViewController: UIViewController {
     
     @IBAction func addScoreButton(sender: AnyObject) {
         var inputTextField: UITextField?
+        //http://stackoverflow.com/questions/24172593/access-input-from-uialertcontroller
         let namePrompt = UIAlertController(title: "Enter Name", message: "Entering name for leaderboard", preferredStyle: UIAlertControllerStyle.Alert)
         
         namePrompt.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
@@ -42,6 +43,7 @@ class GameOverViewController: UIViewController {
         
         namePrompt.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
             textField.placeholder = "Name"
+            //http://stackoverflow.com/questions/6943016/uitextfield-auto-capitalization-type-iphone-app
             textField.autocapitalizationType = UITextAutocapitalizationType.Words
             inputTextField = textField
         })
