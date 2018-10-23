@@ -19,12 +19,12 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         settings = SettingsData.Static.instance
         model = Highscores.Static.instance
-        settingsSwitch.on = settings!.mutedSound
+        settingsSwitch.isOn = settings!.mutedSound
     }
     
     
-    @IBAction func switchToggled(sender: UISwitch) {
-        settings!.mutedSound = settingsSwitch.on
+    @IBAction func switchToggled(_ sender: UISwitch) {
+        settings!.mutedSound = settingsSwitch.isOn
         var saveData = SuperSimpleSave()
         saveData.savedScores = self.model!.scores
         saveData.soundMute = self.settings!.mutedSound

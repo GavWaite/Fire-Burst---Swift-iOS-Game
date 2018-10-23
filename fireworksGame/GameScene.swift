@@ -25,19 +25,19 @@ import AudioToolbox
 
 //http://stackoverflow.com/questions/24043904/creating-and-playing-a-sound-in-swift
 // File paths and Sound IDs for the sound effects
-let explosionPath = NSBundle.mainBundle().pathForResource("75328__oddworld__oddworld-explosionecho", ofType: "wav")
-let explosionURL = NSURL(fileURLWithPath: explosionPath!)
+let explosionPath = Bundle.main.path(forResource: "75328__oddworld__oddworld-explosionecho", ofType: "wav")
+let explosionURL = URL(fileURLWithPath: explosionPath!)
 var explosionID: SystemSoundID = 0
 
-let launchPath = NSBundle.mainBundle().pathForResource("202230__deraj__pop-sound", ofType: "wav")
-let launchURL = NSURL(fileURLWithPath: launchPath!)
+let launchPath = Bundle.main.path(forResource: "202230__deraj__pop-sound", ofType: "wav")
+let launchURL = URL(fileURLWithPath: launchPath!)
 var launchID: SystemSoundID = 1
 
 //https://developer.apple.com/library/prerelease/ios/documentation/SpriteKit/Reference/SKAction_Ref/index.html#//apple_ref/occ/clm/SKAction/followPath:speed:
 // SKAction shortcuts
-let fire = SKAction.moveToY(20, duration: 2)
+let fire = SKAction.moveTo(y: 20, duration: 2)
 let death = SKAction.removeFromParent()
-let wait = SKAction.waitForDuration(1)
+let wait = SKAction.wait(forDuration: 1)
 let explode = SKAction.sequence([wait, death])
 
 // Timer notification strings
@@ -68,7 +68,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var scores: Highscores?
     var settings: SettingsData?
     var emitters: EmitterPaths?
-    private var timer: NSTimer?
+    fileprivate var timer: Timer?
     var TimeObserver: NSObjectProtocol?
     
     var numberOfRockets = 0
@@ -80,53 +80,53 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
 //////////////////////// Scene set-up /////////////////////////
     
-    override func didMoveToView(view: SKView) {
+    override func didMove(to view: SKView) {
         
         model = GameModel() // the current game data
         scores = Highscores.Static.instance
         settings = SettingsData.Static.instance
         emitters = EmitterPaths()
         startObservers()
-        AudioServicesCreateSystemSoundID(explosionURL, &explosionID)
-        AudioServicesCreateSystemSoundID(launchURL, &launchID)
+        AudioServicesCreateSystemSoundID(explosionURL as CFURL, &explosionID)
+        AudioServicesCreateSystemSoundID(launchURL as CFURL, &launchID)
         
         // Add score text
         scoreLabel.text = "00000"
         scoreLabel.name = "score"
         scoreLabel.fontSize = 30
-        scoreLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
-        scoreLabel.fontColor = UIColor.whiteColor()
-        scoreLabel.position = CGPoint(x:CGRectGetMinX(self.frame)+15, y: CGRectGetMaxY(self.frame)-45)
+        scoreLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
+        scoreLabel.fontColor = UIColor.white
+        scoreLabel.position = CGPoint(x:self.frame.minX+15, y: self.frame.maxY-45)
         self.addChild(scoreLabel)
         
         // Add lives text
         livesLabel.text = "5"
         livesLabel.name = "lives"
         livesLabel.fontSize = 30
-        livesLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Right
-        livesLabel.fontColor = UIColor.yellowColor()
-        livesLabel.position = CGPoint(x:CGRectGetMaxX(self.frame)-15, y: CGRectGetMaxY(self.frame)-45)
+        livesLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.right
+        livesLabel.fontColor = UIColor.yellow
+        livesLabel.position = CGPoint(x:self.frame.maxX-15, y: self.frame.maxY-45)
         self.addChild(livesLabel)
         
         // Add debug launch button
         launch.text = "Tap to begin";
         launch.name = "launch"
         launch.fontSize = 30;
-        launch.fontColor = UIColor.whiteColor()
-        launch.position = CGPoint(x:CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame));
+        launch.fontColor = UIColor.white
+        launch.position = CGPoint(x:self.frame.midX, y: self.frame.midY);
         self.addChild(launch)
         
         // Set up the bottom of screen colision
-        let bottomLeft = CGPoint(x: CGRectGetMinX(self.frame), y: CGRectGetMinY(self.frame))
-        let bottomRight = CGPoint(x: CGRectGetMaxX(self.frame), y: CGRectGetMinY(self.frame))
-        let bottomEdge = SKPhysicsBody(edgeFromPoint: bottomLeft, toPoint: bottomRight)
+        let bottomLeft = CGPoint(x: self.frame.minX, y: self.frame.minY)
+        let bottomRight = CGPoint(x: self.frame.maxX, y: self.frame.minY)
+        let bottomEdge = SKPhysicsBody(edgeFrom: bottomLeft, to: bottomRight)
         bottomEdge.categoryBitMask = floorCategory
         bottomEdge.contactTestBitMask = rocketCategory
         bottomEdge.collisionBitMask = 0
         self.physicsBody = bottomEdge
         
         // Set the scene
-        backgroundColor = UIColor.blackColor()
+        backgroundColor = UIColor.black
         
         // Set up the gravity
         self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -10)
@@ -136,86 +136,86 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
 /////////////////////////// User touches the scene //////////////////////////////
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(_ touches: Set<NSObject>, with event: UIEvent) {
         /* Called when a touch begins */
         
         for touch in (touches as! Set<UITouch>) {
             
-            let location = touch.locationInNode(self)
-            let node = self.nodeAtPoint(location)
+            let location = touch.location(in: self)
+            let node = self.atPoint(location)
             
             if node.name == "launch"{
-                launch.hidden = true
+                launch.isHidden = true
                 launch.removeFromParent()
                 activateTimer()
             }
             
             // A rocket has been tapped to explode
             if let nameN = node.name {
-                let center = NSNotificationCenter.defaultCenter()
-                let notification = NSNotification(name: "fireworkTouched", object: self)
+                let center = NotificationCenter.default
+                let notification = Notification(name: Notification.Name(rawValue: "fireworkTouched"), object: self)
                 if nameN.hasPrefix("redR"){
                     exploded(node, color: "red")
-                    let rktNum = (nameN as NSString).substringFromIndex(4)
+                    let rktNum = (nameN as NSString).substring(from: 4)
                     let trlNum = "trail\(rktNum)"
-                    if let trail = self.childNodeWithName(trlNum){
+                    if let trail = self.childNode(withName: trlNum){
                         trail.removeFromParent()
                     }
-                    center.postNotification(notification)
+                    center.post(notification)
                 }
                 else if nameN.hasPrefix("orangeR"){
                     exploded(node, color: "orange")
-                    let rktNum = (nameN as NSString).substringFromIndex(7)
+                    let rktNum = (nameN as NSString).substring(from: 7)
                     let trlNum = "trail\(rktNum)"
-                    if let trail = self.childNodeWithName(trlNum){
+                    if let trail = self.childNode(withName: trlNum){
                         trail.removeFromParent()
                     }
-                    center.postNotification(notification)
+                    center.post(notification)
                 }
                 else if nameN.hasPrefix("yellowR"){
                     exploded(node, color: "yellow")
-                    let rktNum = (nameN as NSString).substringFromIndex(7)
+                    let rktNum = (nameN as NSString).substring(from: 7)
                     let trlNum = "trail\(rktNum)"
-                    if let trail = self.childNodeWithName(trlNum){
+                    if let trail = self.childNode(withName: trlNum){
                         trail.removeFromParent()
                     }
-                    center.postNotification(notification)
+                    center.post(notification)
                 }
                 else if nameN.hasPrefix("greenR"){
                     exploded(node, color: "green")
-                    let rktNum = (nameN as NSString).substringFromIndex(6)
+                    let rktNum = (nameN as NSString).substring(from: 6)
                     let trlNum = "trail\(rktNum)"
-                    if let trail = self.childNodeWithName(trlNum){
+                    if let trail = self.childNode(withName: trlNum){
                         trail.removeFromParent()
                     }
-                    center.postNotification(notification)
+                    center.post(notification)
                 }
                 else if nameN.hasPrefix("blueR"){
                     exploded(node, color: "blue")
-                    let rktNum = (nameN as NSString).substringFromIndex(5)
+                    let rktNum = (nameN as NSString).substring(from: 5)
                     let trlNum = "trail\(rktNum)"
-                    if let trail = self.childNodeWithName(trlNum){
+                    if let trail = self.childNode(withName: trlNum){
                         trail.removeFromParent()
                     }
-                    center.postNotification(notification)
+                    center.post(notification)
                 }
                 else if nameN.hasPrefix("purpleR"){
                     exploded(node, color: "purple")
-                    let rktNum = (nameN as NSString).substringFromIndex(7)
+                    let rktNum = (nameN as NSString).substring(from: 7)
                     let trlNum = "trail\(rktNum)"
-                    if let trail = self.childNodeWithName(trlNum){
+                    if let trail = self.childNode(withName: trlNum){
                         trail.removeFromParent()
                     }
-                    center.postNotification(notification)
+                    center.post(notification)
                 }
                 else if nameN.hasPrefix("pinkR"){
                     exploded(node, color: "pink")
-                    let rktNum = (nameN as NSString).substringFromIndex(5)
+                    let rktNum = (nameN as NSString).substring(from: 5)
                     let trlNum = "trail\(rktNum)"
-                    if let trail = self.childNodeWithName(trlNum){
+                    if let trail = self.childNode(withName: trlNum){
                         trail.removeFromParent()
                     }
-                    center.postNotification(notification)
+                    center.post(notification)
                 }
             }
         }
@@ -223,7 +223,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
 ///////////////////////////////////// Collisions ///////////////////////////////////////////////
     
-    func didBeginContact(contact: SKPhysicsContact) {
+    func didBegin(_ contact: SKPhysicsContact) {
         
         let a = contact.bodyA // This will be the floor
         let b = contact.bodyB // This will be the rocket
@@ -235,7 +235,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if direction == 1.0 { // Direction 1.0 means straight down, as apposed to the -1.0 when rocket launches
             b.node!.removeFromParent()
-            model!.lives--
+            model!.lives -= 1
             if model!.lives < 1 {
                 endTheGame()
             }
@@ -245,15 +245,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
  ///////////////////////////// Observering and Timing ///////////////////////////////////////////////
     func startObservers() {
-        let center = NSNotificationCenter.defaultCenter()
-        let uiQueue = NSOperationQueue.mainQueue()
-        center.addObserver(self, selector: "addToScore", name: "fireworkTouched", object: nil)
+        let center = NotificationCenter.default
+        let uiQueue = OperationQueue.main
+        center.addObserver(self, selector: #selector(GameScene.addToScore), name: NSNotification.Name(rawValue: "fireworkTouched"), object: nil)
     }
     
     func activateTimer() {
         assert(timer == nil && model != nil)
-        timer = NSTimer.scheduledTimerWithTimeInterval(model!.intervalTime, target: self,
-            selector: "handleTimer", userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: model!.intervalTime, target: self,
+            selector: #selector(GameScene.handleTimer), userInfo: nil, repeats: true)
     }
     
     func cancelTimer() {
@@ -268,7 +268,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if model!.score / model!.phase > 5000 {
-            model!.phase++
+            model!.phase += 1
             model!.intervalTime = 1.5
         }
         
@@ -290,23 +290,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         cancelTimer()
         scores!.tempScore = model!.score
         self.removeAllChildren()
-        let center = NSNotificationCenter.defaultCenter()
-        let notification = NSNotification(
-            name: "goToGameOver", object: self)
-        center.postNotification(notification)
+        let center = NotificationCenter.default
+        let notification = Notification(
+            name: Notification.Name(rawValue: "goToGameOver"), object: self)
+        center.post(notification)
     }
     
     func addToScore() {
         model!.score += 100
     }
     
-    func exploded(node: SKNode, color: String){
+    func exploded(_ node: SKNode, color: String){
         let explosion: SKEmitterNode
         
         //http://stackoverflow.com/questions/24083938/adding-a-particle-emitter-to-the-flappyswift-project
         //http://goobbe.com/questions/4782463/adding-emitter-node-to-sks-file-and-using-it-xcode-6-0-swift
         // Load the correct explosion SKEmitterNode
-        explosion = NSKeyedUnarchiver.unarchiveObjectWithFile(emitters!.emitterPathDictionary[color]!) as! SKEmitterNode
+        explosion = NSKeyedUnarchiver.unarchiveObject(withFile: emitters!.emitterPathDictionary[color]!) as! SKEmitterNode
         
         // Add the explosion emitter
         let deathLoc = node.position
@@ -316,20 +316,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playExplode()
         explosion.zPosition = CGFloat(-1)
         explosion.particleZPosition = CGFloat(-1)
-        explosion.runAction(explode)
+        explosion.run(explode)
     }
     
     
     
-    override func update(currentTime: CFTimeInterval) {
+    override func update(_ currentTime: TimeInterval) {
         /* Called before each frame is rendered */
         scoreLabel.text = "\(model!.score)"
         livesLabel.text = "\(model!.lives) ❤️"
         
         // Update the position of the flame trails and flip the sprites if necessary
         for i in 0...numberOfRockets {
-            if let trl = self.childNodeWithName("trail\(i)"){
-                if let red = self.childNodeWithName("redR\(i)"){
+            if let trl = self.childNode(withName: "trail\(i)"){
+                if let red = self.childNode(withName: "redR\(i)"){
                     let up = red.physicsBody!.velocity.dy >= 0
                     let pos = red.position
                     if up {
@@ -340,7 +340,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         red.yScale = -1
                     }
                 }
-                else if let yel = self.childNodeWithName("yellowR\(i)"){
+                else if let yel = self.childNode(withName: "yellowR\(i)"){
                     let up = yel.physicsBody!.velocity.dy >= 0
                     let pos = yel.position
                     if up {
@@ -351,7 +351,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         yel.yScale = -1
                     }
                 }
-                else if let ora = self.childNodeWithName("orangeR\(i)"){
+                else if let ora = self.childNode(withName: "orangeR\(i)"){
                     let up = ora.physicsBody!.velocity.dy >= 0
                     let pos = ora.position
                     if up {
@@ -362,7 +362,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         ora.yScale = -1
                     }
                 }
-                else if let grn = self.childNodeWithName("greenR\(i)"){
+                else if let grn = self.childNode(withName: "greenR\(i)"){
                     let up = grn.physicsBody!.velocity.dy >= 0
                     let pos = grn.position
                     if up {
@@ -373,7 +373,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         grn.yScale = -1
                     }
                 }
-                else if let blu = self.childNodeWithName("blueR\(i)"){
+                else if let blu = self.childNode(withName: "blueR\(i)"){
                     let up = blu.physicsBody!.velocity.dy >= 0
                     let pos = blu.position
                     if up {
@@ -384,7 +384,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         blu.yScale = -1
                     }
                 }
-                else if let pur = self.childNodeWithName("purpleR\(i)"){
+                else if let pur = self.childNode(withName: "purpleR\(i)"){
                     let up = pur.physicsBody!.velocity.dy >= 0
                     let pos = pur.position
                     if up {
@@ -395,7 +395,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         pur.yScale = -1
                     }
                 }
-                else if let pin = self.childNodeWithName("pinkR\(i)"){
+                else if let pin = self.childNode(withName: "pinkR\(i)"){
                     let up = pin.physicsBody!.velocity.dy >= 0
                     let pos = pin.position
                     if up {
@@ -436,7 +436,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     
-    func fireRocket(color: String) {
+    func fireRocket(_ color: String) {
         let rocket: SKSpriteNode
         let trail: SKEmitterNode
         
@@ -448,28 +448,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         rocket.name = "\(RName)\(numberOfRockets)"
         
         // Initialise the flame trail
-        trail = NSKeyedUnarchiver.unarchiveObjectWithFile(emitters!.emitterPathDictionary["trail"]!) as! SKEmitterNode
+        trail = NSKeyedUnarchiver.unarchiveObject(withFile: emitters!.emitterPathDictionary["trail"]!) as! SKEmitterNode
         trail.name = "trail\(numberOfRockets)"
         
         // Decide where to randomly launch the rocket from
-        let leftX = Int(CGRectGetMinX(self.frame)) + 30
-        let rightX = Int(CGRectGetMaxX(self.frame)) - 30
+        let leftX = Int(self.frame.minX) + 30
+        let rightX = Int(self.frame.maxX) - 30
         let Xdistance = rightX - leftX
         let Xposition = leftX + Int(arc4random_uniform(UInt32(Xdistance)))
-        let Yposition = Int(CGRectGetMinY(self.frame))
+        let Yposition = Int(self.frame.minY)
         rocket.position = CGPoint(x: Xposition, y: Yposition)
         trail.position = CGPoint(x: rocket.position.x + 25, y:rocket.position.y)
         trail.zPosition = CGFloat(-2)
         trail.particleZPosition = CGFloat(-2)
         
         // Set up the physics body for the rocket
-        rocket.physicsBody = SKPhysicsBody(rectangleOfSize: rocket.size)
-        rocket.physicsBody!.dynamic = true
+        rocket.physicsBody = SKPhysicsBody(rectangleOf: rocket.size)
+        rocket.physicsBody!.isDynamic = true
         rocket.physicsBody!.mass = CGFloat(0.01)
         rocket.physicsBody!.categoryBitMask = rocketCategory
         rocket.physicsBody!.contactTestBitMask = floorCategory
         rocket.physicsBody!.collisionBitMask = 0
-        numberOfRockets++
+        numberOfRockets += 1
         
         // Add the rocket and apply a random vertical force to it
         self.addChild(rocket)

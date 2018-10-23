@@ -20,12 +20,12 @@ class HowToPlayPageViewController: UIPageViewController, UIPageViewControllerDat
         
         let startingViewController = self.viewControllerAtIndex(0)
         let viewControllers: NSArray = [startingViewController]
-        self.setViewControllers(viewControllers as [AnyObject], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+        self.setViewControllers(viewControllers as [AnyObject] as [AnyObject], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
 
     }
     
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         if let VC = viewController as? HowToPlayContentViewController{
             switch VC.itemIndex{
             case 0:
@@ -39,7 +39,7 @@ class HowToPlayPageViewController: UIPageViewController, UIPageViewControllerDat
         }
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         if let VC = viewController as? HowToPlayContentViewController{
             switch VC.itemIndex{
             case 5:
@@ -53,18 +53,18 @@ class HowToPlayPageViewController: UIPageViewController, UIPageViewControllerDat
         }
     }
     
-    func viewControllerAtIndex(ind: Int)-> HowToPlayContentViewController{
-        let pageContentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("HowToPlayContentViewController") as? HowToPlayContentViewController
+    func viewControllerAtIndex(_ ind: Int)-> HowToPlayContentViewController{
+        let pageContentViewController = self.storyboard?.instantiateViewController(withIdentifier: "HowToPlayContentViewController") as? HowToPlayContentViewController
         pageContentViewController!.itemIndex = ind
         
         return pageContentViewController!
     }
     
-    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return data.tutorialTexts.count
     }
     
-    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         return 0
     }
     

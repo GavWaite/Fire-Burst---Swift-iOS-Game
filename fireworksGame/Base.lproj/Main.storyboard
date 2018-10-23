@@ -1,49 +1,36 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XmU-54-yhi">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XmU-54-yhi">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="c7nazara.ttf">
+        <array key="c7nazara.ttf">
             <string>C7nazara</string>
-            <string>C7nazara</string>
-            <string>C7nazara</string>
-            <string>C7nazara</string>
-            <string>C7nazara</string>
-            <string>C7nazara</string>
-            <string>C7nazara</string>
-            <string>C7nazara</string>
-            <string>C7nazara</string>
-            <string>C7nazara</string>
-            <string>C7nazara</string>
-            <string>C7nazara</string>
-            <string>C7nazara</string>
-            <string>C7nazara</string>
-            <string>C7nazara</string>
-            <string>C7nazara</string>
-            <string>C7nazara</string>
-            <string>C7nazara</string>
-            <string>C7nazara</string>
-        </mutableArray>
+        </array>
     </customFonts>
     <scenes>
         <!--mainMenu-->
         <scene sceneID="bTS-q1-xfR">
             <objects>
-                <viewController title="mainMenu" id="XmU-54-yhi" customClass="MenuViewController" customModule="fireworksGames" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="mainMenu" id="XmU-54-yhi" customClass="MenuViewController" customModule="fireworksGame" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uqW-Qv-HG9"/>
                         <viewControllerLayoutGuide type="bottom" id="4ua-yY-2G4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4SA-cm-Q4Q">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2L-Pi-4CR">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2L-Pi-4CR">
                                 <rect key="frame" x="462" y="20" width="122" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Few-Yk-t3g"/>
@@ -51,14 +38,14 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="C7nazara" family="C7nazara" pointSize="26"/>
                                 <state key="normal" title="Settings">
-                                    <color key="titleColor" red="1" green="0.020100812986999284" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="0.020100812986999284" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="qQD-Bt-HCq" kind="show" id="Hkh-Xb-5Lh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gwz-lH-8R0">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gwz-lH-8R0">
                                 <rect key="frame" x="259" y="363" width="82" height="57"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="fLK-qk-3G1"/>
@@ -66,8 +53,8 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="C7nazara" family="C7nazara" pointSize="40"/>
                                 <state key="normal" title="Play">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -79,7 +66,7 @@
                                     <segue destination="BV1-FR-VrT" kind="show" id="USh-F4-HCm"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmJ-4i-ws6">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmJ-4i-ws6">
                                 <rect key="frame" x="416" y="58" width="168" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="7Dl-wq-E11"/>
@@ -87,14 +74,14 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="C7nazara" family="C7nazara" pointSize="26"/>
                                 <state key="normal" title="How To Play">
-                                    <color key="titleColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="uxi-3x-oVF" kind="show" id="Z0L-VL-6n3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLV-vd-ugN">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLV-vd-ugN">
                                 <rect key="frame" x="226" y="536" width="148" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="9nc-jS-56O"/>
@@ -102,21 +89,21 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="C7nazara" family="C7nazara" pointSize="26"/>
                                 <state key="normal" title="High Scores">
-                                    <color key="titleColor" red="1" green="0.020100812986999284" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="0.020100812986999284" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="YaO-Xh-utn" kind="show" id="p0T-Dr-Em2"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ILLUMINATE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nRy-NW-Qur">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ILLUMINATE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nRy-NW-Qur">
                                 <rect key="frame" x="16" y="262" width="568" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="D3E-S5-QTA"/>
                                     <constraint firstAttribute="height" constant="171" id="aGy-6F-4tU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="C7nazara" family="C7nazara" pointSize="55"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -124,7 +111,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="9kh-Zz-IbO">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="9kh-Zz-IbO">
                                 <rect key="frame" x="16" y="202" width="568" height="146"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="9kh-Zz-IbO" secondAttribute="height" multiplier="338:87" id="XDC-Oi-fry"/>
@@ -141,7 +128,7 @@
                                 </variation>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="nRy-NW-Qur" firstAttribute="top" secondItem="uqW-Qv-HG9" secondAttribute="bottom" constant="194" id="16J-cB-7Pi"/>
                             <constraint firstItem="4ua-yY-2G4" firstAttribute="top" secondItem="tLV-vd-ugN" secondAttribute="bottom" constant="191" id="1ga-Ga-Jux"/>
@@ -186,13 +173,13 @@
         <!--settings-->
         <scene sceneID="MjR-qa-Ryk">
             <objects>
-                <viewController title="settings" id="qQD-Bt-HCq" customClass="SettingsViewController" customModule="fireworksGames" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="settings" id="qQD-Bt-HCq" customClass="SettingsViewController" customModule="fireworksGame" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xIx-cQ-qUf"/>
                         <viewControllerLayoutGuide type="bottom" id="e7t-7Y-oJv"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="UN6-nX-W2P">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fZ-5L-lRs">
@@ -202,8 +189,8 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="C7nazara" family="C7nazara" pointSize="18"/>
                                 <state key="normal" title="Back">
-                                    <color key="titleColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -214,20 +201,20 @@
                                     <segue destination="XmU-54-yhi" kind="show" id="wyo-5o-hcp"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6J9-8n-ELH">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6J9-8n-ELH">
                                 <rect key="frame" x="345" y="82" width="51" height="31"/>
-                                <color key="onTintColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="onTintColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="switchToggled:" destination="qQD-Bt-HCq" eventType="valueChanged" id="xMb-Kr-krc"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mute Sound:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7C-TO-8ba">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Mute Sound:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7C-TO-8ba">
                                 <rect key="frame" x="152" y="87" width="113" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="87" id="UIe-4M-DeG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="C7nazara" family="C7nazara" pointSize="18"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -235,13 +222,13 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Q7-qe-hyQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Q7-qe-hyQ">
                                 <rect key="frame" x="265" y="20" width="70" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="63" id="DW0-lc-tib"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="C7nazara" family="C7nazara" pointSize="18"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -250,7 +237,7 @@
                                 </variation>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="e7t-7Y-oJv" firstAttribute="top" secondItem="7Q7-qe-hyQ" secondAttribute="bottom" constant="555" id="0Af-lQ-hHa"/>
                             <constraint firstItem="7Q7-qe-hyQ" firstAttribute="centerX" secondItem="UN6-nX-W2P" secondAttribute="centerX" id="6mW-zl-fXC"/>
@@ -309,15 +296,15 @@
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="fireworksGames" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="fireworksGame" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="maK-i9-Uhn"/>
                         <viewControllerLayoutGuide type="bottom" id="khH-OB-KpY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <segue destination="5Pp-xf-4dp" kind="show" identifier="gameOver" id="SeM-WS-FmD"/>
@@ -330,23 +317,23 @@
         <!--gameOver-->
         <scene sceneID="DH9-mo-NZI">
             <objects>
-                <viewController title="gameOver" id="5Pp-xf-4dp" customClass="GameOverViewController" customModule="fireworksGames" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="gameOver" id="5Pp-xf-4dp" customClass="GameOverViewController" customModule="fireworksGame" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="To1-2L-CuA"/>
                         <viewControllerLayoutGuide type="bottom" id="GSL-vB-MT7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="u8q-pf-fNo">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1234567" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="079-Eo-SEP">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1234567" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="079-Eo-SEP">
                                 <rect key="frame" x="234" y="152" width="133" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="NdX-Uq-MP6"/>
                                     <constraint firstAttribute="width" constant="221" id="Sk1-2Z-2sW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="C7nazara" family="C7nazara" pointSize="36"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -355,15 +342,15 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Yt-nu-Pa3">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Yt-nu-Pa3">
                                 <rect key="frame" x="16" y="559" width="91" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="83" id="3bE-5z-axY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="C7nazara" family="C7nazara" pointSize="18"/>
                                 <state key="normal" title="Play again">
-                                    <color key="titleColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -381,8 +368,8 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="C7nazara" family="C7nazara" pointSize="18"/>
                                 <state key="normal" title="Back to Menu">
-                                    <color key="titleColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -393,15 +380,15 @@
                                     <segue destination="XmU-54-yhi" kind="show" id="3vF-Z6-lFj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqc-uT-eku">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqc-uT-eku">
                                 <rect key="frame" x="217" y="203" width="167" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="rTP-Vz-6V7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="C7nazara" family="C7nazara" pointSize="18"/>
                                 <state key="normal" title="Add to Scoreboard">
-                                    <color key="titleColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -412,14 +399,14 @@
                                     <action selector="addScoreButton:" destination="5Pp-xf-4dp" eventType="touchUpInside" id="uWk-81-gJa"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You scored" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gb-E5-9ye">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You scored" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gb-E5-9ye">
                                 <rect key="frame" x="254" y="123" width="93" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="A2w-Af-3zh"/>
                                     <constraint firstAttribute="width" constant="107" id="Ach-ix-6vA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="C7nazara" family="C7nazara" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -428,19 +415,19 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TnE-YZ-nqV">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TnE-YZ-nqV">
                                 <rect key="frame" x="483" y="563" width="101" height="33"/>
                                 <fontDescription key="fontDescription" name="C7nazara" family="C7nazara" pointSize="18"/>
                                 <state key="normal" title="High Scores">
-                                    <color key="titleColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="YaO-Xh-utn" kind="show" id="PCh-o4-3hy"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Yt-nu-Pa3" firstAttribute="top" secondItem="To1-2L-CuA" secondAttribute="bottom" constant="542" id="3SD-dt-u8r"/>
                             <constraint firstItem="TnE-YZ-nqV" firstAttribute="top" secondItem="6Yt-nu-Pa3" secondAttribute="bottom" constant="-29" id="99v-6v-jGh"/>
@@ -492,55 +479,59 @@
         <!--global-->
         <scene sceneID="nuh-om-Uhd">
             <objects>
-                <viewController title="global" id="YaO-Xh-utn" customClass="HighscoreViewController" customModule="fireworksGames" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="global" id="YaO-Xh-utn" customClass="HighscoreViewController" customModule="fireworksGame" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gQX-yG-Kac"/>
                         <viewControllerLayoutGuide type="bottom" id="bXH-oe-Fyy"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="XTR-O7-GRf">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sIT-4j-5QB">
                                 <rect key="frame" x="16" y="11" width="44" height="29"/>
                                 <fontDescription key="fontDescription" name="C7nazara" family="C7nazara" pointSize="18"/>
                                 <state key="normal" title="Back">
-                                    <color key="titleColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="XmU-54-yhi" kind="show" id="2Z3-e8-PkO"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="FEv-z2-kFh">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="FEv-z2-kFh">
                                 <rect key="frame" x="16" y="48" width="568" height="544"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="separatorColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="sectionIndexColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="separatorColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="scoreCell" textLabel="061-e4-e57" detailTextLabel="48k-oa-EKT" style="IBUITableViewCellStyleSubtitle" id="CZy-gr-77q">
+                                        <rect key="frame" x="0.0" y="22" width="568" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CZy-gr-77q" id="pdv-Mc-goo">
+                                            <rect key="frame" x="0.0" y="0.0" width="568" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="James" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="061-e4-e57">
+                                                    <rect key="frame" x="15" y="5" width="48" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="9999999" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="48k-oa-EKT">
+                                                    <rect key="frame" x="15" y="25" width="50" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.1530342487373737" green="0.1530342487373737" blue="0.1530342487373737" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="tintColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.1530342487373737" green="0.1530342487373737" blue="0.1530342487373737" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -548,17 +539,17 @@
                                     <outlet property="delegate" destination="YaO-Xh-utn" id="JYv-fW-HpT"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highscores!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zj3-99-iHe">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Highscores!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zj3-99-iHe">
                                 <rect key="frame" x="241" y="13" width="119" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="119" id="GhU-4v-fnr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="C7nazara" family="C7nazara" pointSize="20"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bXH-oe-Fyy" firstAttribute="top" secondItem="FEv-z2-kFh" secondAttribute="bottom" constant="8" symbolic="YES" id="09f-jT-9o9"/>
                             <constraint firstItem="Zj3-99-iHe" firstAttribute="centerX" secondItem="FEv-z2-kFh" secondAttribute="centerX" id="0gf-nX-kd0"/>
@@ -582,7 +573,7 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="7QU-ch-MCu">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </tableView>
             </objects>
             <point key="canvasLocation" x="1216" y="-675"/>
@@ -590,22 +581,22 @@
         <!--howToPlay-->
         <scene sceneID="Cvm-Fh-shl">
             <objects>
-                <viewController storyboardIdentifier="HowToPlayContentViewController" title="howToPlay" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Lzc-2T-mdw" customClass="HowToPlayContentViewController" customModule="fireworksGames" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HowToPlayContentViewController" title="howToPlay" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Lzc-2T-mdw" customClass="HowToPlayContentViewController" customModule="fireworksGame" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Srh-sP-qj4"/>
                         <viewControllerLayoutGuide type="bottom" id="fvm-Mq-haE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="0G0-Kv-z39">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mpZ-mf-bh8">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mpZ-mf-bh8">
                                 <rect key="frame" x="16" y="60" width="568" height="262"/>
                             </imageView>
-                            <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Information goes here. Oh yes it does it does itdwiojfcw;eve" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59I-dn-waZ">
+                            <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Information goes here. Oh yes it does it does itdwiojfcw;eve" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59I-dn-waZ">
                                 <rect key="frame" x="16" y="330" width="568" height="262"/>
                                 <fontDescription key="fontDescription" name="C7nazara" family="C7nazara" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W07-Zk-EGW">
@@ -615,8 +606,8 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="C7nazara" family="C7nazara" pointSize="18"/>
                                 <state key="normal" title="Back">
-                                    <color key="titleColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="0.020100812990000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -627,14 +618,14 @@
                                     <segue destination="XmU-54-yhi" kind="show" id="XAP-F5-Tfu"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to play goes here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hu6-f2-qV7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="How to play goes here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hu6-f2-qV7">
                                 <rect key="frame" x="207" y="27" width="186" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="208" id="4IS-iu-hq2"/>
                                     <constraint firstAttribute="height" constant="21" id="cmQ-X8-jLf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="C7nazara" family="C7nazara" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -644,7 +635,7 @@
                                 </variation>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Hu6-f2-qV7" firstAttribute="baseline" secondItem="W07-Zk-EGW" secondAttribute="baseline" id="1Dz-jq-R3V"/>
                             <constraint firstItem="Hu6-f2-qV7" firstAttribute="baseline" secondItem="W07-Zk-EGW" secondAttribute="firstBaseline" id="519-WK-D8n"/>
@@ -710,7 +701,7 @@
         <!--howToPlayPageView-->
         <scene sceneID="U9r-ZZ-SkO">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" title="howToPlayPageView" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="uxi-3x-oVF" customClass="HowToPlayPageViewController" customModule="fireworksGames" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" title="howToPlayPageView" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="uxi-3x-oVF" customClass="HowToPlayPageViewController" customModule="fireworksGame" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WWL-8f-EGr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1209" y="403"/>
@@ -720,8 +711,8 @@
         <image name="logo" width="508" height="130"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="USh-F4-HCm"/>
         <segue reference="2Z3-e8-PkO"/>
         <segue reference="p0T-Dr-Em2"/>
-        <segue reference="USh-F4-HCm"/>
     </inferredMetricsTieBreakers>
 </document>

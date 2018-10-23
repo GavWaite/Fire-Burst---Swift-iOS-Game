@@ -20,26 +20,26 @@ class SuperSimpleSave: NSObject, NSCoding {
     
     required init(coder aDecoder: NSCoder) {
         // Awaken from our custom persisted object on device filesystem
-        savedScores = aDecoder.decodeObjectForKey("savedScores") as! [String : Int]
-        soundMute = aDecoder.decodeObjectForKey("soundMute") as! Bool
+        savedScores = aDecoder.decodeObject(forKey: "savedScores") as! [String : Int]
+        soundMute = aDecoder.decodeObject(forKey: "soundMute") as! Bool
         super.init()
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(savedScores, forKey: "savedScores")
-        aCoder.encodeObject(soundMute, forKey: "soundMute")
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(savedScores, forKey: "savedScores")
+        aCoder.encode(soundMute, forKey: "soundMute")
     }
 }
 
 class Persistence {
     static let ModelFileName = "savedScores.serialized"
-    static let FileMgr = NSFileManager.defaultManager()
+    static let FileMgr = FileManager.default
     
     static var path: String? {
         // Important: searchpath API
-        if let dirPaths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.ApplicationSupportDirectory, NSSearchPathDomainMask.UserDomainMask, true) as? [String] where dirPaths.count > 0 {
+        if let dirPaths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.applicationSupportDirectory, FileManager.SearchPathDomainMask.userDomainMask, true) as? [String], dirPaths.count > 0 {
             // "/var/db/43234-ABC2345-2345/Library/Application Support"
-            if !FileMgr.fileExistsAtPath(dirPaths[0]) && !mkdir(dirPaths[0]) {
+            if !FileMgr.fileExists(atPath: dirPaths[0]) && !mkdir(dirPaths[0]) {
                 return nil
             }
             return dirPaths[0].stringByAppendingPathComponent(ModelFileName)
@@ -48,10 +48,10 @@ class Persistence {
     }
     
     // think of it as black box to create a directory on iOS filesystem
-    static func mkdir(newDirPath: String) -> Bool {
+    static func mkdir(_ newDirPath: String) -> Bool {
         var createDirErr: NSError?
         let createDirRes = FileMgr.createDirectoryAtPath(newDirPath, withIntermediateDirectories: false, attributes: nil, error: &createDirErr)
-        if let err = createDirErr where !createDirRes {
+        if let err = createDirErr, !createDirRes {
             println("Could not create directory: \(err.localizedDescription)")
             return false
         }
@@ -60,29 +60,29 @@ class Persistence {
     
     // Rather than using full hierarchical capabilities of NSKeyedArchiver,
     // just one object, so it's the "root" object of the file
-    static func save(model: NSObject) -> Bool {
+    static func save(_ model: NSObject) -> Bool {
         var success = false
         if let savePath = Persistence.path {
             // Important: archiving step
             success = NSKeyedArchiver.archiveRootObject(model, toFile: savePath)
-            println("saved model success: \(success) at \(NSDate()) to path: \(savePath)")
+            println("saved model success: \(success) at \(Date()) to path: \(savePath)")
         }
         return success
     }
     
     static func restore() -> NSObject? {
         if let savePath = Persistence.path {
-            if let rawData = NSData(contentsOfFile: savePath) {
+            if let rawData = try? Data(contentsOf: URL(fileURLWithPath: savePath)) {
                 // rawData is the bytes on disk to transform into the object previously
                 // saved
-                let unarchiver = NSKeyedUnarchiver(forReadingWithData: rawData)
+                let unarchiver = NSKeyedUnarchiver(forReadingWith: rawData)
                 // Important: unarchiving
-                if let model = unarchiver.decodeObjectForKey("root") as? NSObject {
-                    println("restored model successfully at \(NSDate())")
+                if let model = unarchiver.decodeObject(forKey: "root") as? NSObject {
+                    println("restored model successfully at \(Date())")
                     return model
                 }
                 else {
-                    println("Could not decode object at \(NSDate())")
+                    println("Could not decode object at \(Date())")
                 }
             }
             else {

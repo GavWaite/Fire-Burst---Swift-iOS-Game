@@ -29,20 +29,20 @@ class HighscoreViewController: UIViewController, UITableViewDataSource, UITableV
 
     
     /////// Set up table view /////////
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return false
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return highscores!.scores.count
     }
     
     ////////// Fill table view ///////////
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Identifiers.basicCell, forIndexPath: indexPath) as! UITableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.basicCell, for: indexPath) 
         cell.textLabel!.text = "\(indexPath.row + 1): \(highscores!.sortedScores[indexPath.row].name)"
         cell.detailTextLabel!.text = "\(highscores!.sortedScores[indexPath.row].value)"
         return cell

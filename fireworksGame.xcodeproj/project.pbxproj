@@ -76,7 +76,7 @@
 		ADA8A67B1B6FE320009C14DA /* PurpleFireworksSparks.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PurpleFireworksSparks.sks; sourceTree = "<group>"; };
 		ADA8A67D1B6FE32D009C14DA /* OrangeFireworksSparks.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = OrangeFireworksSparks.sks; sourceTree = "<group>"; };
 		ADA8A67F1B70276E009C14DA /* CurrentGameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentGameModel.swift; sourceTree = "<group>"; };
-		ADF66CBA1B5D634200CE9C84 /* fireworksGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fireworksGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADF66CBA1B5D634200CE9C84 /* fireworksGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fireworksGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADF66CBE1B5D634200CE9C84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADF66CBF1B5D634200CE9C84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADF66CC11B5D634200CE9C84 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -200,7 +200,7 @@
 		ADF66CBB1B5D634200CE9C84 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ADF66CBA1B5D634200CE9C84 /* fireworksGames.app */,
+				ADF66CBA1B5D634200CE9C84 /* fireworksGame.app */,
 				ADF66CD31B5D634200CE9C84 /* fireworksGamesTests.xctest */,
 			);
 			name = Products;
@@ -249,9 +249,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		ADF66CB91B5D634200CE9C84 /* fireworksGames */ = {
+		ADF66CB91B5D634200CE9C84 /* fireworksGame */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ADF66CDD1B5D634200CE9C84 /* Build configuration list for PBXNativeTarget "fireworksGames" */;
+			buildConfigurationList = ADF66CDD1B5D634200CE9C84 /* Build configuration list for PBXNativeTarget "fireworksGame" */;
 			buildPhases = (
 				ADF66CB61B5D634200CE9C84 /* Sources */,
 				ADF66CB71B5D634200CE9C84 /* Frameworks */,
@@ -261,14 +261,14 @@
 			);
 			dependencies = (
 			);
-			name = fireworksGames;
+			name = fireworksGame;
 			productName = fireworksGame;
-			productReference = ADF66CBA1B5D634200CE9C84 /* fireworksGames.app */;
+			productReference = ADF66CBA1B5D634200CE9C84 /* fireworksGame.app */;
 			productType = "com.apple.product-type.application";
 		};
-		ADF66CD21B5D634200CE9C84 /* fireworksGamesTests */ = {
+		ADF66CD21B5D634200CE9C84 /* fireworksGameTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ADF66CE01B5D634200CE9C84 /* Build configuration list for PBXNativeTarget "fireworksGamesTests" */;
+			buildConfigurationList = ADF66CE01B5D634200CE9C84 /* Build configuration list for PBXNativeTarget "fireworksGameTests" */;
 			buildPhases = (
 				ADF66CCF1B5D634200CE9C84 /* Sources */,
 				ADF66CD01B5D634200CE9C84 /* Frameworks */,
@@ -279,7 +279,7 @@
 			dependencies = (
 				ADF66CD51B5D634200CE9C84 /* PBXTargetDependency */,
 			);
-			name = fireworksGamesTests;
+			name = fireworksGameTests;
 			productName = fireworksGameTests;
 			productReference = ADF66CD31B5D634200CE9C84 /* fireworksGamesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -290,14 +290,18 @@
 		ADF66CB21B5D634200CE9C84 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Gavin Waite";
 				TargetAttributes = {
 					ADF66CB91B5D634200CE9C84 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = FCQHJR525J;
+						LastSwiftMigration = 0820;
 					};
 					ADF66CD21B5D634200CE9C84 = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0820;
 						TestTargetID = ADF66CB91B5D634200CE9C84;
 					};
 				};
@@ -315,8 +319,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				ADF66CB91B5D634200CE9C84 /* fireworksGames */,
-				ADF66CD21B5D634200CE9C84 /* fireworksGamesTests */,
+				ADF66CB91B5D634200CE9C84 /* fireworksGame */,
+				ADF66CD21B5D634200CE9C84 /* fireworksGameTests */,
 			);
 		};
 /* End PBXProject section */
@@ -390,7 +394,7 @@
 /* Begin PBXTargetDependency section */
 		ADF66CD51B5D634200CE9C84 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = ADF66CB91B5D634200CE9C84 /* fireworksGames */;
+			target = ADF66CB91B5D634200CE9C84 /* fireworksGame */;
 			targetProxy = ADF66CD41B5D634200CE9C84 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -428,14 +432,17 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -473,8 +480,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -493,6 +502,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -502,9 +512,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = fireworksGame/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = fireworksGames;
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.harvard.cscis65.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = fireworksGame;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -512,9 +527,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = fireworksGame/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = fireworksGames;
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.harvard.cscis65.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = fireworksGame;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -532,7 +552,9 @@
 				);
 				INFOPLIST_FILE = fireworksGameTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.harvard.cscis65.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = fireworksGamesTests;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/fireworksGame.app/fireworksGame";
 			};
 			name = Debug;
@@ -547,7 +569,9 @@
 				);
 				INFOPLIST_FILE = fireworksGameTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.harvard.cscis65.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = fireworksGamesTests;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/fireworksGame.app/fireworksGame";
 			};
 			name = Release;
@@ -564,7 +588,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ADF66CDD1B5D634200CE9C84 /* Build configuration list for PBXNativeTarget "fireworksGames" */ = {
+		ADF66CDD1B5D634200CE9C84 /* Build configuration list for PBXNativeTarget "fireworksGame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ADF66CDE1B5D634200CE9C84 /* Debug */,
@@ -573,7 +597,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ADF66CE01B5D634200CE9C84 /* Build configuration list for PBXNativeTarget "fireworksGamesTests" */ = {
+		ADF66CE01B5D634200CE9C84 /* Build configuration list for PBXNativeTarget "fireworksGameTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ADF66CE11B5D634200CE9C84 /* Debug */,
